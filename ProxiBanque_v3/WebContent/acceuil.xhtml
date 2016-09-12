@@ -14,6 +14,39 @@
 
 	<center>
 		<h1>Bienvenue!</h1>
+<!-- 		<h:outputText value="#{conseillerManagedBean.nom}" /> -->
+		<h:form id="formClientTable">
+			
+			<!-- Table de clients -->
+			<p:dataTable var="client" value="#{conseillerManagedBean.clients}"
+				style="width: 700" rowKey="#{client.id}" first="#{user.id}" rows="3">
+			
+<!-- 			<p:ajax event="rowSelect" update=":formDataTable:userUpdateForm" listener="#{userManagedBean.onUserSelect}"/>  -->
+
+			<!-- Colonnes -->
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="Id" />
+					</f:facet>
+					<h:outputText value="#{client.id}" />
+				</p:column>
+				
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="Nom" />
+					</f:facet>
+					<h:outputText value="#{client.nom}" />
+				</p:column>
+				
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="Prenom" />
+					</f:facet>
+					<h:outputText value="#{client.prenom}" />
+				</p:column>
+
+			</p:dataTable>
+		</h:form>
 	</center>
 </h:body>
 </html>
