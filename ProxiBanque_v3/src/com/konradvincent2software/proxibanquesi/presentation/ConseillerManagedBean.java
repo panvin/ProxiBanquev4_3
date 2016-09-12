@@ -4,9 +4,14 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.context.FacesContext;
 
 import com.konradvincent2software.proxibanquesi.domaine.Client;
+import com.konradvincent2software.proxibanquesi.domaine.Conseiller;
+import com.konradvincent2software.proxibanquesi.service.AuthService;
+import com.konradvincent2software.proxibanquesi.service.ConseillerService;
+
 
 //@ManagedBean(name="conseillerManagedBean")
 //@SessionScoped
@@ -14,16 +19,23 @@ public class ConseillerManagedBean implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
-//	@Inject
-//	ConseillerService service;
+	AuthService as = new AuthService();
+	ConseillerService cs = new ConseillerService();
 	
 	// Propriétés
+	@ManagedProperty(name = "nom", value = "Heinz")
 	private String nom;
+	//@ManagedProperty(name = "prenom")
 	private String prenom;
 	private String civilite;
 	private String login;
 	private String password;
 	private List<Client> clients;
+	
+	// Constructeurs
+	public ConseillerManagedBean() {
+		super();
+	}
 	
 	// Getters et Setters
 	public String getNom() {
@@ -57,25 +69,32 @@ public class ConseillerManagedBean implements Serializable {
 		this.password = password;
 	}
 	public List<Client> getClients() {
-		return clients;
+		return this.clients;
 	}
 	public void setClients(List<Client> clients) {
 		this.clients = clients;
 	}
 
 	// Autres méthodes
-	public String login()
-    {
-        if("test".equalsIgnoreCase(getLogin()) && "test".equals(getPassword()))
+	public String authentifiaction() {
+        if(as.authConseiller(login, password))
         {
+        	//Conseiller conseiller = cs.lireConseiller(login);
+        	//System.out.println(conseiller.getNom());
+        	//FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("conseiller", conseiller);
+        	//setNom(conseiller.getNom());
             return "acceuil";
         }
         else
         {
             FacesContext context = FacesContext.getCurrentInstance();
-            context.addMessage("username", new FacesMessage("Invalid UserName and Password"));
+            context.addMessage("username", new FacesMessage("Authetifiaction non réussi."));
             return "login";
         }
     }
+	
+	public String test() {
+		return "login";
+	}
 	
 }

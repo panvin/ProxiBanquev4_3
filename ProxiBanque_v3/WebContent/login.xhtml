@@ -16,14 +16,12 @@
 		<p:panel header="Login Form" style="width: 350;" >
 			<h:form>
 			 	<h:panelGrid columns="2" cellpadding="2">
-					<h:outputLabel for="#{conseillerManagedBean.login}" value="UserName" />
-					<h:inputText value="#{conseillerManagedBean.login}" label="UserName"></h:inputText>
-					<h:outputLabel for="#{conseillerManagedBean.password}" value="Password" />
+					<h:outputLabel for="#{conseillerManagedBean.login}" value="Nom d'utilisateur" />
+					<h:inputText value="#{conseillerManagedBean.login}" label="Nom d'utilisateur"></h:inputText>
+					<h:outputLabel for="#{conseillerManagedBean.password}" value="Mot de passe" />
 					<h:inputSecret value="#{conseillerManagedBean.password}"></h:inputSecret>
-					
-					<h:commandButton type="submit" value="Login"
-						action="#{conseillerManagedBean.login}"></h:commandButton>
 				</h:panelGrid>
+				<h:commandButton type="submit" value="Login" action="#{conseillerManagedBean.authentifiaction}"/>				
 			</h:form>
 		</p:panel>
 		<div>
