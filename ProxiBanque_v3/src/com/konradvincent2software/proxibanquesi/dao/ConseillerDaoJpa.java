@@ -2,7 +2,6 @@ package com.konradvincent2software.proxibanquesi.dao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
-import javax.persistence.Query;
 
 import com.konradvincent2software.proxibanquesi.domaine.Conseiller;
 
@@ -31,11 +30,14 @@ public class ConseillerDaoJpa extends GestionEntityManager implements IConseille
 
 	@Override
 	public void updateConseillerByLogin(String loginInit, Conseiller newConseiller) {
+		Conseiller conseiller = readConseillerByLogin(loginInit);
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
-		Conseiller conseiller = em.createQuery("SELECT c FROM Conseiller c WHERE c.login = :loginInit", Conseiller.class).setParameter("loginInit",loginInit).getSingleResult();
-		Query query = em.createQuery("UPDATE Conseiller SET ");
-		query.executeUpdate();
+		conseiller.setCivilite(newConseiller.getCivilite());
+		conseiller.setNom(newConseiller.getNom());
+		conseiller.setPrenom(newConseiller.getPrenom());
+		conseiller.setPassword(newConseiller.getPassword());
+		conseiller.setClients(newConseiller.getClients());
 		tx.commit();
 
 
@@ -45,8 +47,9 @@ public class ConseillerDaoJpa extends GestionEntityManager implements IConseille
 	public void deleteConseillerByLogin(String loginInit) {
 		
 		Conseiller conseiller = this.readConseillerByLogin(loginInit);
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
 		em.remove(conseiller);
-
+		tx.commit();
 	}
-
 }
