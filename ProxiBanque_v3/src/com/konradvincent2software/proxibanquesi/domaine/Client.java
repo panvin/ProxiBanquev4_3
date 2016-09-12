@@ -1,5 +1,6 @@
 package com.konradvincent2software.proxibanquesi.domaine;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -32,9 +33,9 @@ public class Client extends Personne {
 	private int id;
 	@ManyToOne
 	private Conseiller monConseiller;
-	@OneToOne
+	@OneToOne(mappedBy="titulaire", cascade=CascadeType.ALL, orphanRemoval = true)
 	private CompteEpargne compteEpargne;
-	@OneToOne
+	@OneToOne(mappedBy="titulairee", cascade=CascadeType.ALL, orphanRemoval = true)
 	private CompteCourant compteCourant;
 
 	/**

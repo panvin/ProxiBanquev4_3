@@ -4,7 +4,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
 import com.konradvincent2software.proxibanquesi.domaine.Compte;
-import com.konradvincent2software.proxibanquesi.domaine.Conseiller;
 
 public class CompteDaoJpa extends GestionEntityManager implements ICompteDao {
 
@@ -30,13 +29,22 @@ public class CompteDaoJpa extends GestionEntityManager implements ICompteDao {
 
 	@Override
 	public boolean updateCompteByNum(String numCompte, float newSolde) {
-		// TODO Auto-generated method stub
+		Compte compte = readCompteByNum(numCompte);
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+		compte.setSolde(newSolde);
+		tx.commit();
 		return false;
+		
 	}
 
 	@Override
 	public boolean deleteCompteByNum(String numCompte) {
-		// TODO Auto-generated method stub
+		Compte compte = readCompteByNum(numCompte);
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+		em.remove(compte);
+		tx.commit();
 		return false;
 	}
 

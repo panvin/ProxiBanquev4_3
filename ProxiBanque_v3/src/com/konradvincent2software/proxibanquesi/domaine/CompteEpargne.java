@@ -1,10 +1,13 @@
 package com.konradvincent2software.proxibanquesi.domaine;
 
+import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 
 /**
@@ -21,6 +24,8 @@ import javax.persistence.OneToOne;
 public class CompteEpargne extends Compte {
 
 	@OneToOne
+	@JoinColumn(name="id")
+	@MapsId
 	private Client titulaire;
 
 	/**

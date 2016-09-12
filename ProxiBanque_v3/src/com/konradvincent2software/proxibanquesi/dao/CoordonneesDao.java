@@ -8,7 +8,7 @@ import java.sql.Statement;
 
 import com.konradvincent2software.proxibanquesi.domaine.Coordonnees;
 
-public class CoordonneesDao implements ICoordonneesDao {
+public class CoordonneesDao {
 
 	/**
 	 * Méthode permettant la création en base de coordoonnees pour un client.
