@@ -1,11 +1,18 @@
 package com.konradvincent2software.proxibanquesi.domaine;
 
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+
 /**
  * Classe Abstraite Personne, représente les personnes qui interviennent dans le
  * SI
  * 
- * @author Clement CASTRO et Vincent PANOUILLERES
+ * @author Konrad THOMAS et Vincent PANOUILLERES
  */
+
+@Entity
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 public abstract class Personne {
 
 	private String nom;

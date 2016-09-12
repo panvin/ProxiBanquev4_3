@@ -2,11 +2,18 @@ package com.konradvincent2software.proxibanquesi.domaine;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+
 /**
  * Classe Conseiller, représente les Conseillers de ProxiBanque
  * 
- * @author Clement CASTRO et Vincent PANOUILLERES
+ * @author Konrad THOMAS et Vincent PANOUILLERES
  */
+
+@Entity
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 public class Conseiller extends Personne {
 
 	private String login;

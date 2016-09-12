@@ -1,10 +1,21 @@
 package com.konradvincent2software.proxibanquesi.domaine;
 
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+
 /**
  * Classe CompteCourant, représente le compte courant d'un client proxibanque
  * @author Clement CASTRO et Vincent PANOUILLERES
  *
  */
+
+@Entity
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="TYPE_COMPTE")
+@DiscriminatorValue("COURANT")
 public class CompteCourant extends Compte {
 
 	private Client titulaire;

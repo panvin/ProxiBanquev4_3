@@ -1,6 +1,5 @@
 package com.konradvincent2software.proxibanquesi.service;
 
-import com.konradvincent2software.proxibanquesi.dao.ClientDao;
 import com.konradvincent2software.proxibanquesi.dao.ConseillerDao;
 import com.konradvincent2software.proxibanquesi.domaine.Conseiller;
 
@@ -23,11 +22,9 @@ public class ConseillerService {
 	 * @return Retourne un booléen: true si tout se déroule sans problemes sinon
 	 *         false. (booléen)
 	 */
-	public boolean creerConseiller(Conseiller conseiller) {
-		boolean status;
+	public void creerConseiller(Conseiller conseiller) {
 		ConseillerDao conseillerDao = new ConseillerDao();
-		status = conseillerDao.createConseiller(conseiller);
-		return status;
+		conseillerDao.createConseiller(conseiller);
 
 	}
 
@@ -41,10 +38,9 @@ public class ConseillerService {
 	 * @return Retourne un booléen: true si tout se déroule sans problemes sinon
 	 *         false. (booléen)
 	 */
-	public boolean modifierConseiller(String login, Conseiller conseiller) {
+	public void modifierConseiller(String login, Conseiller conseiller) {
 		ConseillerDao conseillerDao = new ConseillerDao();
-		boolean status = conseillerDao.updateConseillerByLogin(login, conseiller);
-		return status;
+		conseillerDao.updateConseillerByLogin(login, conseiller);
 	}
 
 	/**
@@ -56,11 +52,9 @@ public class ConseillerService {
 	 * @return Retourne un booléen: true si tout se déroule sans problemes sinon
 	 *         false. (booléen)
 	 */
-	public boolean supprimerConseiller(String login) {
-		boolean status;
+	public void supprimerConseiller(String login) {
 		ConseillerDao conseillerDao = new ConseillerDao();
-		status = conseillerDao.deleteConseillerByLogin(login);
-		return status;
+		conseillerDao.deleteConseillerByLogin(login);
 	}
 
 	/**

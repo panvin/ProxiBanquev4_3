@@ -7,9 +7,9 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.clementvincent2software.proxibanquesi.domaine.Client;
-import com.clementvincent2software.proxibanquesi.domaine.Conseiller;
-import com.clementvincent2software.proxibanquesi.service.ClientService;
+import com.konradvincent2software.proxibanquesi.domaine.Client;
+import com.konradvincent2software.proxibanquesi.domaine.Conseiller;
+import com.konradvincent2software.proxibanquesi.service.ClientService;
 
 public class ClientServiceTest {
 	

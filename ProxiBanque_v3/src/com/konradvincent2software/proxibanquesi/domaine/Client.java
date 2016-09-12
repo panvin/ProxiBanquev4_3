@@ -1,15 +1,24 @@
 package com.konradvincent2software.proxibanquesi.domaine;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+
 /**
  * Classe de la couche Domaine Permet de stocker et manipuler l'ensemble des
  * éléments métieurs correspondant à un client de ProxiBanque
  * 
- * @author Clement CASTRO et Vincent PANOUILLERES
+ * @author Konrad THOMAS et Vincent PANOUILLERES
  */
+
+@Entity
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 public class Client extends Personne {
 
 	private String email;
 	private Coordonnees coordonnees;
+	@Id
 	private int id;
 	private Conseiller monConseiller;
 	private CompteEpargne compteEpargne;

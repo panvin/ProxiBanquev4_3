@@ -3,7 +3,7 @@ package com.konradvincent2software.proxibanquesi.service.test;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.clementvincent2software.proxibanquesi.service.AuthService;;
+import com.konradvincent2software.proxibanquesi.service.AuthService;;
 
 public class AuthServiceTest {
 

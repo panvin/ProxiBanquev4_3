@@ -1,12 +1,25 @@
 package com.konradvincent2software.proxibanquesi.domaine;
 
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+
 /**
  * Classe abstraite Compte, représente les comptes des clients de proxibanque C'est à partir de cette classe que sont construites les Classes CompteEpargne et CompteCourant. Contient le solde, le numero de compte, et la date d'ouverture du compte.
- * @author Clement CASTRO et Vincent PANOUILLERES
+ * @author Konrad THOAMAS et Vincent PANOUILLERES
  *
  */
+
+@Entity
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="TYPE_COMPTE")
+@DiscriminatorValue("MERE")
 public abstract class Compte {
 
+	@Id
 	private String numero;
 	private Float solde;
 	private String dateOuverture;

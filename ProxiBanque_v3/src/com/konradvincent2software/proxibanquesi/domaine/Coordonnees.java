@@ -1,11 +1,15 @@
 package com.konradvincent2software.proxibanquesi.domaine;
 
+import javax.persistence.Entity;
+
 /**
  * Classe Coordonnées, représente les coordonées d'un client proxibanque
  * 
- * @author Clement CASTRO et Vincent PANOUILLERES
+ * @author Konrad THOMAS et Vincent PANOUILLERES
  *
  */
+
+@Entity
 public class Coordonnees {
 
 	private String adresse;

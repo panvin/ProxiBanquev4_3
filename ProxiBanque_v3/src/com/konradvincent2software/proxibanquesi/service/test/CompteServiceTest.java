@@ -5,11 +5,11 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.clementvincent2software.proxibanquesi.domaine.Client;
-import com.clementvincent2software.proxibanquesi.domaine.Compte;
-import com.clementvincent2software.proxibanquesi.domaine.CompteCourant;
-import com.clementvincent2software.proxibanquesi.domaine.CompteEpargne;
-import com.clementvincent2software.proxibanquesi.service.CompteService;
+import com.konradvincent2software.proxibanquesi.domaine.Client;
+import com.konradvincent2software.proxibanquesi.domaine.Compte;
+import com.konradvincent2software.proxibanquesi.domaine.CompteCourant;
+import com.konradvincent2software.proxibanquesi.domaine.CompteEpargne;
+import com.konradvincent2software.proxibanquesi.service.CompteService;
 
  public class CompteServiceTest {
 

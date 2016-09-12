@@ -1,11 +1,22 @@
 package com.konradvincent2software.proxibanquesi.domaine;
 
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+
 /**
  * Classe CompteEpargne, représente le compte epargne d'un client proxibanque
  * 
- * @author Clement CASTRO et Vincent PANOUILLERES
+ * @author Konrad THOMAS et Vincent PANOUILLERES
  *
  */
+
+@Entity
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="TYPE_COMPTE")
+@DiscriminatorValue("EPARGNE")
 public class CompteEpargne extends Compte {
 
 	private Client titulaire;
