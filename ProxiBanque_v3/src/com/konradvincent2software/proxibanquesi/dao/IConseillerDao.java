@@ -1,6 +1,6 @@
-package com.clementvincent2software.proxibanquesi.dao;
+package com.konradvincent2software.proxibanquesi.dao;
 
-import com.clementvincent2software.proxibanquesi.domaine.Conseiller;
+import com.konradvincent2software.proxibanquesi.domaine.Conseiller;
 
 public interface IConseillerDao {
 	

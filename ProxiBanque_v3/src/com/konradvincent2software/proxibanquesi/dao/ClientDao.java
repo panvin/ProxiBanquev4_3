@@ -1,4 +1,4 @@
-package com.clementvincent2software.proxibanquesi.dao;
+package com.konradvincent2software.proxibanquesi.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collection;
-import com.clementvincent2software.proxibanquesi.domaine.Client;
+import com.konradvincent2software.proxibanquesi.domaine.Client;
 
 /**
  * Classe ClientDao, permet la gestion des Clients en base
@@ -22,7 +22,7 @@ public class ClientDao implements IClientDao {
 	 * 
 	 * @param client
 	 */
-	public static boolean createClient(Client client) {
+	public boolean createClient(Client client) {
 		// INfomration d'accès à la base de données
 		String url = "jdbc:mysql://localhost/ProxiBanque";
 		String login = "root";
@@ -70,7 +70,7 @@ public class ClientDao implements IClientDao {
 	 * 
 	 * @return collection de Client
 	 */
-	public static Collection<Client> readAllClient() {
+	public Collection<Client> readAllClient() {
 		// INformation d'acces à la base de donnees
 		String url = "jdbc:mysql://localhost/ProxiBanque";
 		String login = "root";
@@ -79,7 +79,7 @@ public class ClientDao implements IClientDao {
 		Statement st = null;
 		ResultSet rs = null;
 		Collection<Client> collection = new ArrayList<Client>();
-		String nomClient, prenomClient, civiliteClient;
+		String nomClient, prenomClient, civiliteClient, email;
 		int idClient;
 
 		try {
@@ -98,7 +98,8 @@ public class ClientDao implements IClientDao {
 				prenomClient = rs.getString("prenom");
 				civiliteClient = rs.getString("civilite");
 				idClient = rs.getInt("id");
-				collection.add(new Client(nomClient, prenomClient, civiliteClient, idClient));
+				email = rs.getString("email");
+				collection.add(new Client(nomClient, prenomClient, civiliteClient, email, idClient));
 			}
 
 		} catch (SQLException e) {
@@ -125,7 +126,7 @@ public class ClientDao implements IClientDao {
 	 *            login du conseiller
 	 * @return Collection de Client
 	 */
-	public static Collection<Client> readClientByConseiller(String logInit) {
+	public Collection<Client> readClientByConseiller(String logInit) {
 		// INformation d'acces à la base de donnees
 		String url = "jdbc:mysql://localhost/ProxiBanque";
 		String login = "root";
@@ -134,7 +135,7 @@ public class ClientDao implements IClientDao {
 		Statement st = null;
 		ResultSet rs = null;
 		Collection<Client> collection = new ArrayList<Client>();
-		String nomClient, prenomClient, civiliteClient;
+		String nomClient, prenomClient, civiliteClient, email;
 		int idClient;
 
 		try {
@@ -153,7 +154,8 @@ public class ClientDao implements IClientDao {
 				prenomClient = rs.getString("prenom");
 				civiliteClient = rs.getString("civilite");
 				idClient = rs.getInt("id");
-				collection.add(new Client(nomClient, prenomClient, civiliteClient, idClient));
+				email = rs.getString("email");
+				collection.add(new Client(nomClient, prenomClient, civiliteClient, email, idClient));
 			}
 
 		} catch (SQLException e) {
@@ -180,7 +182,7 @@ public class ClientDao implements IClientDao {
 	 *            identifiant du client
 	 * @return Client
 	 */
-	public static Client readClientById(int idInit) {
+	public Client readClientById(int idInit) {
 		// INformation d'acces à la base de donnees
 		String url = "jdbc:mysql://localhost/ProxiBanque";
 		String login = "root";
@@ -189,7 +191,7 @@ public class ClientDao implements IClientDao {
 		Statement st = null;
 		ResultSet rs = null;
 		Client client = null;
-		String nomClient, prenomClient, civiliteClient;
+		String nomClient, prenomClient, civiliteClient, email;
 		int idClient;
 
 		try {
@@ -208,7 +210,8 @@ public class ClientDao implements IClientDao {
 				prenomClient = rs.getString("prenom");
 				civiliteClient = rs.getString("civilite");
 				idClient = rs.getInt("id");
-				client = new Client(nomClient, prenomClient, civiliteClient, idClient);
+				email = rs.getString("email");
+				client = new Client(nomClient, prenomClient, civiliteClient, email, idClient);
 			}
 
 		} catch (SQLException e) {
@@ -236,7 +239,7 @@ public class ClientDao implements IClientDao {
 	 * @param newClient
 	 *            Objet Client contenant les nouvelles informations
 	 */
-	public static boolean updateClientById(int idInit, Client newClient) {
+	public boolean updateClientById(int idInit, Client newClient) {
 		// INformation d'acces à la base de donnees
 		String url = "jdbc:mysql://localhost/ProxiBanque";
 		String login = "root";
@@ -283,7 +286,7 @@ public class ClientDao implements IClientDao {
 	 * @param idInit
 	 *            identifiant du client à supprimer
 	 */
-	public static boolean deleteClientById(int idInit) {
+	public boolean deleteClientById(int idInit) {
 		// INformation d'acces à la base de donnees
 		String url = "jdbc:mysql://localhost/ProxiBanque";
 		String login = "root";

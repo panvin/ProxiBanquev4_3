@@ -1,4 +1,4 @@
-package com.clementvincent2software.proxibanquesi.dao;
+package com.konradvincent2software.proxibanquesi.dao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

@@ -1,12 +1,9 @@
-package com.clementvincent2software.proxibanquesi.dao;
+package com.konradvincent2software.proxibanquesi.dao;
 
 import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
+import javax.persistence.Query;
 
-import com.clementvincent2software.proxibanquesi.domaine.Conseiller;
+import com.konradvincent2software.proxibanquesi.domaine.Conseiller;
 
 public class ConseillerDaoJpa extends GestionEntityManager implements IConseillerDao {
 

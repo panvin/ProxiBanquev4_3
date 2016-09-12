@@ -1,11 +1,11 @@
-package com.clementvincent2software.proxibanquesi.dao;
+package com.konradvincent2software.proxibanquesi.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import com.clementvincent2software.proxibanquesi.domaine.Conseiller;
+import com.konradvincent2software.proxibanquesi.domaine.Conseiller;
 
 /**
  * Classe ConseillerDao, permet la gestion des Conseillers en base
@@ -18,7 +18,7 @@ public class ConseillerDao implements IConseillerDao {
 	 * Méthode permettant la création en base d'un nouveau conseiller en base
 	 * @param conseiller
 	 */
-	public static void createConseiller(Conseiller conseiller) {
+	public void createConseiller(Conseiller conseiller) {
 		// INfomration d'accès à la base de données
 		String url = "jdbc:mysql://localhost/ProxiBanque";
 		String login = "root";
@@ -58,7 +58,7 @@ public class ConseillerDao implements IConseillerDao {
 	 * @param loginInit Login du conseiller
 	 * @return conseiller
 	 */
-	public static Conseiller readConseillerByLogin(String loginInit) {
+	public Conseiller readConseillerByLogin(String loginInit) {
 		// INformation d'acces à la base de donnees
 		String url = "jdbc:mysql://localhost/ProxiBanque";
 		String login = "root";
@@ -111,7 +111,7 @@ public class ConseillerDao implements IConseillerDao {
 	 * @param loginInit  Login du conseiller
 	 * @param newConseiller Objet Conseiller contenant les nouvelles informations
 	 */
-	public static void updateConseillerByLogin(String loginInit, Conseiller newConseiller){
+	public void updateConseillerByLogin(String loginInit, Conseiller newConseiller){
 		// INformation d'acces à la base de donnees
 		String url = "jdbc:mysql://localhost/ProxiBanque";
 		String login = "root";
@@ -149,7 +149,7 @@ public class ConseillerDao implements IConseillerDao {
 	 * Méthode permettant de supprimer en base un conseiller à partir de son login
 	 * @param loginInit Login du conseiller
 	 */
-	public static void deleteConseillerByLogin(String loginInit){
+	public void deleteConseillerByLogin(String loginInit){
 		// INformation d'acces à la base de donnees
 		String url = "jdbc:mysql://localhost/ProxiBanque";
 		String login = "root";

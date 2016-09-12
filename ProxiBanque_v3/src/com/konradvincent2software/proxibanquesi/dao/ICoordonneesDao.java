@@ -1,6 +1,6 @@
-package com.clementvincent2software.proxibanquesi.dao;
+package com.konradvincent2software.proxibanquesi.dao;
 
-import com.clementvincent2software.proxibanquesi.domaine.Coordonnees;
+import com.konradvincent2software.proxibanquesi.domaine.Coordonnees;
 
 public interface ICoordonneesDao {
 	public boolean createCoordonnees(Coordonnees coordonnees, int clientId);

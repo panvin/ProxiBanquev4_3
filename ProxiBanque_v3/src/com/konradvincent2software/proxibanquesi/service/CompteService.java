@@ -2,12 +2,12 @@ package com.konradvincent2software.proxibanquesi.service;
 
 import java.util.ArrayList;
 
-import com.clementvincent2software.proxibanquesi.dao.ClientDao;
-import com.clementvincent2software.proxibanquesi.dao.CompteDao;
-import com.clementvincent2software.proxibanquesi.domaine.Client;
-import com.clementvincent2software.proxibanquesi.domaine.Compte;
-import com.clementvincent2software.proxibanquesi.domaine.CompteCourant;
-import com.clementvincent2software.proxibanquesi.domaine.CompteEpargne;
+import com.konradvincent2software.proxibanquesi.dao.ClientDao;
+import com.konradvincent2software.proxibanquesi.dao.CompteDao;
+import com.konradvincent2software.proxibanquesi.domaine.Client;
+import com.konradvincent2software.proxibanquesi.domaine.Compte;
+import com.konradvincent2software.proxibanquesi.domaine.CompteCourant;
+import com.konradvincent2software.proxibanquesi.domaine.CompteEpargne;
 
 /**
  * Classe de la couche service dédié à tout ce qui concerne les comptes. 
@@ -38,18 +38,21 @@ public class CompteService {
 	 *         sinon (booléen)
 	 */
 	public boolean ajouterCompte(Client client, String typeCompte, String numero, float solde, String dateOuverture) {
+		CompteDao compteDao = new CompteDao();
+		ClientDao clientDao = new ClientDao();
+		
 		if(typeCompte.equals("Epargne") && client.getCompteEpargne() == null) {
 			CompteEpargne compteClient = new CompteEpargne(numero, solde, dateOuverture, client);
 			client.setCompteEpargne(compteClient);
-			CompteDao.createCompte(compteClient, typeCompte, client.getId());
-			ClientDao.updateClientById(client.getId(), client);
+			compteDao.createCompte(compteClient, typeCompte, client.getId());
+			clientDao.updateClientById(client.getId(), client);
 			return true;
 		}
 		else if (typeCompte.equals("Courant") && client.getCompteEpargne() == null) {
 			CompteCourant compteClient = new CompteCourant(numero, solde, dateOuverture, client);
 			client.setCompteCourant(compteClient);
-			CompteDao.createCompte(compteClient, typeCompte, client.getId());
-			ClientDao.updateClientById(client.getId(), client);
+			compteDao.createCompte(compteClient, typeCompte, client.getId());
+			clientDao.updateClientById(client.getId(), client);
 			return true;
 		}
 		else 
@@ -69,13 +72,14 @@ public class CompteService {
 	 * @return Retourne un booléen: true si tout se déroule sans problemes sinon false. (booléen)
 	 */
 	public boolean virementCompteACompte(String numCompteADebiter, String numCompteACrediter, float montant) {
-
+		CompteDao compteDao = new CompteDao();
+		
 		boolean statusCompteADebiter, statusCompteACrediter;
-		float soldeCompteADebiter = CompteDao.readCompteByNum(numCompteADebiter).getSolde() - montant;
-		float soldeCompteACrediter = CompteDao.readCompteByNum(numCompteACrediter).getSolde() + montant;
+		float soldeCompteADebiter = compteDao.readCompteByNum(numCompteADebiter).getSolde() - montant;
+		float soldeCompteACrediter = compteDao.readCompteByNum(numCompteACrediter).getSolde() + montant;
 
-		statusCompteADebiter = CompteDao.updateCompteByNum(numCompteADebiter, soldeCompteADebiter);
-		statusCompteACrediter = CompteDao.updateCompteByNum(numCompteACrediter, soldeCompteACrediter);
+		statusCompteADebiter = compteDao.updateCompteByNum(numCompteADebiter, soldeCompteADebiter);
+		statusCompteACrediter = compteDao.updateCompteByNum(numCompteACrediter, soldeCompteACrediter);
 
 		return (statusCompteADebiter && statusCompteACrediter);
 	}
@@ -90,13 +94,17 @@ public class CompteService {
 	 */
 	public boolean supprimerCompte(String numeroCompte) {
 		boolean status;
-		status = CompteDao.deleteCompteByNum(numeroCompte);
+		CompteDao compteDao = new CompteDao();
+		
+		status = compteDao.deleteCompteByNum(numeroCompte);
 		return status;
 	}
 
 	public boolean supprimerCompteParClient(int idClient) {
 		boolean status;
-		status = CompteDao.deleteCompteByIdClient(idClient);
+		CompteDao compteDao = new CompteDao();
+	
+		status = compteDao.deleteCompteByIdClient(idClient);
 		return status;
 	}
 
@@ -109,7 +117,9 @@ public class CompteService {
 	 * @return Retourne l'objet compte demande. (Objet de type COmpte)
 	 */
 	public Compte consulterCompte(String numeroCompte) {
-		Compte compteDemande = CompteDao.readCompteByNum(numeroCompte);
+		CompteDao compteDao = new CompteDao();
+		
+		Compte compteDemande = compteDao.readCompteByNum(numeroCompte);
 		return compteDemande;
 	}
 	
@@ -118,7 +128,9 @@ public class CompteService {
 	 * @return Retourne une ArrayList contenant l'ensemble des comptes clients.(ArrayList<Client>)
 	 */
 	public ArrayList<Compte> consulterTousLesCompte() {
-		ArrayList<Compte> listeCompteDemande = CompteDao.readAllCompte();
+		CompteDao compteDao = new CompteDao();
+		
+		ArrayList<Compte> listeCompteDemande = compteDao.readAllCompte();
 		return listeCompteDemande;
 	}	
 
@@ -132,6 +144,8 @@ public class CompteService {
 	 *            Le montant de la transaction effectuée sur le compte. (float)
 	 */
 	public void modifierCompte(String numeroCompte, float montant) {
-		CompteDao.updateCompteByNum(numeroCompte, montant);
+		CompteDao compteDao = new CompteDao();
+		
+		compteDao.updateCompteByNum(numeroCompte, montant);
 	}
 }

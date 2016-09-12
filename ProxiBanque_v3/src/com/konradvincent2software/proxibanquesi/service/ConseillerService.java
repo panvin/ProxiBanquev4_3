@@ -1,7 +1,8 @@
 package com.konradvincent2software.proxibanquesi.service;
 
-import com.clementvincent2software.proxibanquesi.dao.ConseillerDao;
-import com.clementvincent2software.proxibanquesi.domaine.Conseiller;
+import com.konradvincent2software.proxibanquesi.dao.ClientDao;
+import com.konradvincent2software.proxibanquesi.dao.ConseillerDao;
+import com.konradvincent2software.proxibanquesi.domaine.Conseiller;
 
 /**
  * Classe de la couche service concernant l'ensemble des opération pour le
@@ -24,7 +25,8 @@ public class ConseillerService {
 	 */
 	public boolean creerConseiller(Conseiller conseiller) {
 		boolean status;
-		status = ConseillerDao.createConseiller(conseiller);
+		ConseillerDao conseillerDao = new ConseillerDao();
+		status = conseillerDao.createConseiller(conseiller);
 		return status;
 
 	}
@@ -40,7 +42,8 @@ public class ConseillerService {
 	 *         false. (booléen)
 	 */
 	public boolean modifierConseiller(String login, Conseiller conseiller) {
-		boolean status = ConseillerDao.updateConseillerByLogin(login, conseiller);
+		ConseillerDao conseillerDao = new ConseillerDao();
+		boolean status = conseillerDao.updateConseillerByLogin(login, conseiller);
 		return status;
 	}
 
@@ -55,7 +58,8 @@ public class ConseillerService {
 	 */
 	public boolean supprimerConseiller(String login) {
 		boolean status;
-		status = ConseillerDao.deleteConseillerByLogin(login);
+		ConseillerDao conseillerDao = new ConseillerDao();
+		status = conseillerDao.deleteConseillerByLogin(login);
 		return status;
 	}
 
@@ -68,7 +72,8 @@ public class ConseillerService {
 	 *         (Objet de type Conseiller)
 	 */
 	public Conseiller lireConseiller(String login) {
-		Conseiller conseiller = ConseillerDao.readConseillerByLogin(login);
+		ConseillerDao conseillerDao = new ConseillerDao();
+		Conseiller conseiller = conseillerDao.readConseillerByLogin(login);
 		return conseiller;
 	}
 }

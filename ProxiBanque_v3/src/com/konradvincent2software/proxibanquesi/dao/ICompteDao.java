@@ -1,6 +1,6 @@
-package com.clementvincent2software.proxibanquesi.dao;
+package com.konradvincent2software.proxibanquesi.dao;
 
-import com.clementvincent2software.proxibanquesi.domaine.Compte;
+import com.konradvincent2software.proxibanquesi.domaine.Compte;
 
 public interface ICompteDao {
 	public boolean createCompte(Compte compte, String typeCompte, int idClient);

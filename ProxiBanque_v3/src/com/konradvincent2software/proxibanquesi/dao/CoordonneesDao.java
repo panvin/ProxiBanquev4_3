@@ -1,4 +1,4 @@
-package com.clementvincent2software.proxibanquesi.dao;
+package com.konradvincent2software.proxibanquesi.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.clementvincent2software.proxibanquesi.domaine.Coordonnees;
+import com.konradvincent2software.proxibanquesi.domaine.Coordonnees;
 
 public class CoordonneesDao implements ICoordonneesDao {
 
@@ -15,7 +15,7 @@ public class CoordonneesDao implements ICoordonneesDao {
 	 * @param coordonnees Passe en parametres l'objet coordonnees.
 	 * @return Retourne true si la méthode arrive a se dérouler sans erreurs, retourne false sinon
 	 */
-	public static boolean createCoordonnees(Coordonnees coordonnees, int clientId) {
+	public boolean createCoordonnees(Coordonnees coordonnees, int clientId) {
 		// INfomration d'accès à la base de données
 		String url = "jdbc:mysql://localhost/ProxiBanque";
 		String login = "root";
@@ -64,7 +64,7 @@ public class CoordonneesDao implements ICoordonneesDao {
 	 * @param idClient L'identifiant unique du client.
 	 * @return Retourne l'objet coordonnees correspondant à l'id client.
 	 */
-	public static Coordonnees readCoordonneesByIdClient(int idClient) {
+	public Coordonnees readCoordonneesByIdClient(int idClient) {
 		// INformation d'acces à la base de donnees
 		String url = "jdbc:mysql://localhost/ProxiBanque";
 		String login = "root";
@@ -116,7 +116,7 @@ public class CoordonneesDao implements ICoordonneesDao {
 	 * @param newCoordonnees Les coordonnees client à jour.
 	 * @return Retourne true si la méthode arrive a se dérouler sans erreurs, retourne false sinon.
 	 */
-	public static boolean updateCoordonneesByClientId(int idClient, Coordonnees newCoordonnees) {
+	public boolean updateCoordonneesByClientId(int idClient, Coordonnees newCoordonnees) {
 		// INformation d'acces à la base de donnees
 		String url = "jdbc:mysql://localhost/ProxiBanque";
 		String login = "root";
@@ -162,7 +162,7 @@ public class CoordonneesDao implements ICoordonneesDao {
 	 * @param idClient L'identifiant unique du client dont on souhaite supprimer les coordonnees
 	 * @return Retourne true si la méthode arrive a se dérouler sans erreurs, retourne false sinon
 	 */
-	public static boolean deleteCoordonneesByClientId(int idClient) {
+	public boolean deleteCoordonneesByClientId(int idClient) {
 		// INformation d'acces à la base de donnees
 		String url = "jdbc:mysql://localhost/ProxiBanque";
 		String login = "root";
