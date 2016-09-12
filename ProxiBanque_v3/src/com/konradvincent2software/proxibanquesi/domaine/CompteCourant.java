@@ -1,4 +1,4 @@
-package com.konrad.vincent2software.proxibanquesi.domaine;
+package com.konradvincent2software.proxibanquesi.domaine;
 
 /**
  * Classe CompteCourant, représente le compte courant d'un client proxibanque

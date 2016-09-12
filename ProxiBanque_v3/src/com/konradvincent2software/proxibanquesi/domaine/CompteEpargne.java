@@ -1,4 +1,4 @@
-package com.konrad.vincent2software.proxibanquesi.domaine;
+package com.konradvincent2software.proxibanquesi.domaine;
 
 /**
  * Classe CompteEpargne, représente le compte epargne d'un client proxibanque

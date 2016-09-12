@@ -1,4 +1,4 @@
-package com.konrad.vincent2software.proxibanquesi.domaine;
+package com.konradvincent2software.proxibanquesi.domaine;
 
 /**
  * Classe abstraite Compte, représente les comptes des clients de proxibanque C'est à partir de cette classe que sont construites les Classes CompteEpargne et CompteCourant. Contient le solde, le numero de compte, et la date d'ouverture du compte.
