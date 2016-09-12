@@ -4,12 +4,12 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.context.FacesContext;
 
 import com.konradvincent2software.proxibanquesi.domaine.Client;
 import com.konradvincent2software.proxibanquesi.domaine.Conseiller;
 import com.konradvincent2software.proxibanquesi.service.AuthService;
+import com.konradvincent2software.proxibanquesi.service.ClientService;
 import com.konradvincent2software.proxibanquesi.service.ConseillerService;
 
 
@@ -21,11 +21,10 @@ public class ConseillerManagedBean implements Serializable {
 	
 	AuthService as = new AuthService();
 	ConseillerService cs = new ConseillerService();
+	ClientService cls = new ClientService();
 	
 	// Propriétés
-	@ManagedProperty(name = "nom", value = "Heinz")
 	private String nom;
-	//@ManagedProperty(name = "prenom")
 	private String prenom;
 	private String civilite;
 	private String login;
@@ -79,10 +78,11 @@ public class ConseillerManagedBean implements Serializable {
 	public String authentifiaction() {
         if(as.authConseiller(login, password))
         {
-        	//Conseiller conseiller = cs.lireConseiller(login);
-        	//System.out.println(conseiller.getNom());
-        	//FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("conseiller", conseiller);
-        	//setNom(conseiller.getNom());
+        	Conseiller conseiller = cs.lireConseiller(login);
+        	setNom(conseiller.getNom());
+        	setPrenom(conseiller.getPrenom());
+        	setClients(cls.lireClientsParConseiller(login));
+        	System.out.println(clients);
             return "acceuil";
         }
         else

@@ -13,7 +13,9 @@
 <h:body>
 
 	<center>
-		<h1>Bienvenue!</h1>
+		<h1>Bienvenue <h:outputText value="#{conseillerManagedBean.prenom}" />&nbsp;<h:outputText value="#{conseillerManagedBean.nom}" />!</h1>
+		
+		
 <!-- 		<h:outputText value="#{conseillerManagedBean.nom}" /> -->
 		<h:form id="formClientTable">
 			
