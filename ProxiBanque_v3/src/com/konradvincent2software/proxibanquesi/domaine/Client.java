@@ -5,6 +5,12 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
+import com.konradvincent2software.proxibanquesi.domaine.CompteCourant;
+import com.konradvincent2software.proxibanquesi.domaine.CompteEpargne;
+import com.konradvincent2software.proxibanquesi.domaine.Conseiller;
+import com.konradvincent2software.proxibanquesi.domaine.Coordonnees;
+import com.konradvincent2software.proxibanquesi.domaine.Personne;
+
 /**
  * Classe de la couche Domaine Permet de stocker et manipuler l'ensemble des
  * éléments métieurs correspondant à un client de ProxiBanque
