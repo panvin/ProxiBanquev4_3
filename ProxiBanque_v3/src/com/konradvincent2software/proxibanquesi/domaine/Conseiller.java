@@ -1,10 +1,14 @@
 package com.konradvincent2software.proxibanquesi.domaine;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
 
 /**
  * Classe Conseiller, représente les Conseillers de ProxiBanque
@@ -13,11 +17,13 @@ import javax.persistence.InheritanceType;
  */
 
 @Entity
-@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy=InheritanceType.JOINED)
 public class Conseiller extends Personne {
 
+	@Id
 	private String login;
 	private String password;
+	@OneToMany(fetch=FetchType.EAGER)
 	private List<Client> clients;
 
 	/**
@@ -57,6 +63,10 @@ public class Conseiller extends Personne {
 		super(nom, prenom, civilite);
 		this.login = login;
 		this.password = password;
+	}
+	
+	public Conseiller(){
+		super();
 	}
 
 	/**

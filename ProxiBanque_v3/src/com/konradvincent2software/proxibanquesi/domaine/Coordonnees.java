@@ -1,6 +1,6 @@
 package com.konradvincent2software.proxibanquesi.domaine;
 
-import javax.persistence.Entity;
+import javax.persistence.Embeddable;
 
 /**
  * Classe Coordonnées, représente les coordonées d'un client proxibanque
@@ -9,7 +9,7 @@ import javax.persistence.Entity;
  *
  */
 
-@Entity
+@Embeddable
 public class Coordonnees {
 
 	private String adresse;

@@ -5,6 +5,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.OneToOne;
 
 /**
  * Classe CompteEpargne, représente le compte epargne d'un client proxibanque
@@ -19,6 +20,7 @@ import javax.persistence.InheritanceType;
 @DiscriminatorValue("EPARGNE")
 public class CompteEpargne extends Compte {
 
+	@OneToOne
 	private Client titulaire;
 
 	/**

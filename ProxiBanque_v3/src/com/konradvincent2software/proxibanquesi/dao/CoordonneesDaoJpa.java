@@ -1,19 +1,32 @@
 package com.konradvincent2software.proxibanquesi.dao;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+
+import com.konradvincent2software.proxibanquesi.domaine.Conseiller;
 import com.konradvincent2software.proxibanquesi.domaine.Coordonnees;
 
 public class CoordonneesDaoJpa extends GestionEntityManager implements ICoordonneesDao {
 
+	private EntityManager em;
+	
+	public CoordonneesDaoJpa(){
+		this.em = this.creerEntityManager();
+	}
+	
 	@Override
 	public boolean createCoordonnees(Coordonnees coordonnees, int clientId) {
-		// TODO Auto-generated method stub
-		return false;
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+		em.persist(coordonnees);
+		tx.commit();
+		return true;
 	}
 
 	@Override
 	public Coordonnees readCoordonneesByIdClient(int idClient) {
-		// TODO Auto-generated method stub
-		return null;
+		Coordonnees coordonnees = em.find(Coordonnees.class, idClient);
+		return coordonnees;
 	}
 
 	@Override
@@ -24,7 +37,10 @@ public class CoordonneesDaoJpa extends GestionEntityManager implements ICoordonn
 
 	@Override
 	public boolean deleteCoordonneesByClientId(int idClient) {
-		// TODO Auto-generated method stub
+		
+		Coordonnees coordonnees = readCoordonneesByIdClient(idClient);
+		em.remove(coordonnees);
+		
 		return false;
 	}
 

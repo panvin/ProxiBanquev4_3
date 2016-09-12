@@ -3,6 +3,7 @@ package com.konradvincent2software.proxibanquesi.domaine;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.MappedSuperclass;
 
 /**
  * Classe Abstraite Personne, représente les personnes qui interviennent dans le
@@ -11,8 +12,8 @@ import javax.persistence.InheritanceType;
  * @author Konrad THOMAS et Vincent PANOUILLERES
  */
 
-@Entity
-@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+@MappedSuperclass
+@Inheritance(strategy=InheritanceType.JOINED)
 public abstract class Personne {
 
 	private String nom;
@@ -34,6 +35,10 @@ public abstract class Personne {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.civilite = civilite;
+	}
+
+	public Personne() {
+		
 	}
 
 	/**

@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import com.konradvincent2software.proxibanquesi.domaine.CompteCourant;
 import com.konradvincent2software.proxibanquesi.domaine.CompteEpargne;
@@ -19,15 +21,18 @@ import com.konradvincent2software.proxibanquesi.domaine.Personne;
  */
 
 @Entity
-@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy=InheritanceType.JOINED)
 public class Client extends Personne {
 
 	private String email;
 	private Coordonnees coordonnees;
 	@Id
 	private int id;
+	@ManyToOne
 	private Conseiller monConseiller;
+	@OneToOne
 	private CompteEpargne compteEpargne;
+	@OneToOne
 	private CompteCourant compteCourant;
 
 	/**

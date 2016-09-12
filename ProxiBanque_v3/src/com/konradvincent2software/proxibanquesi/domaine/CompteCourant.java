@@ -5,6 +5,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.OneToOne;
 
 /**
  * Classe CompteCourant, représente le compte courant d'un client proxibanque
@@ -18,6 +19,7 @@ import javax.persistence.InheritanceType;
 @DiscriminatorValue("COURANT")
 public class CompteCourant extends Compte {
 
+	@OneToOne
 	private Client titulaire;
 
 	/**
