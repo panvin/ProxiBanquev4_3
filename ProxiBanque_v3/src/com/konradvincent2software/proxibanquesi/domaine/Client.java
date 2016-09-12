@@ -1,5 +1,6 @@
 package com.konradvincent2software.proxibanquesi.domaine;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
@@ -25,6 +26,7 @@ import com.konradvincent2software.proxibanquesi.domaine.Personne;
 public class Client extends Personne {
 
 	private String email;
+	@Embedded
 	private Coordonnees coordonnees;
 	@Id
 	private int id;

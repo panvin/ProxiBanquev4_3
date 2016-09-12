@@ -7,7 +7,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
 import com.konradvincent2software.proxibanquesi.domaine.Client;
-import com.konradvincent2software.proxibanquesi.domaine.Conseiller;
+import com.konradvincent2software.proxibanquesi.domaine.Coordonnees;
 
 public class ClientDaoJpa extends GestionEntityManager implements IClientDao {
 
@@ -33,8 +33,8 @@ public class ClientDaoJpa extends GestionEntityManager implements IClientDao {
 
 	@Override
 	public Collection<Client> readClientByConseiller(String logInit) {
-		// TODO Auto-generated method stub
-		return null;
+		Query query = em.createQuery("select E from Client E where E.monConseiller.login = :logInit").setParameter("logInit", logInit);
+        return query.getResultList();
 	}
 
 	@Override
@@ -45,13 +45,28 @@ public class ClientDaoJpa extends GestionEntityManager implements IClientDao {
 
 	@Override
 	public boolean updateClientById(int idInit, Client newClient) {
-		// TODO Auto-generated method stub
+		Client client = readClientById(idInit);
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+		client.setNom(newClient.getNom());
+		client.setPrenom(newClient.getPrenom());
+		client.setCivilite(newClient.getCivilite());
+		client.setCompteCourant(newClient.getCompteCourant());
+		client.setCompteEpargne(newClient.getCompteEpargne());
+		client.setMonConseiller(newClient.getMonConseiller());
+		client.setEmail(newClient.getEmail());
+		client.setCoordonnees(newClient.getCoordonnees());
+		tx.commit();
 		return false;
 	}
 
 	@Override
 	public boolean deleteClientById(int idInit) {
-		// TODO Auto-generated method stub
+		Client client = readClientById(idInit);
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+		em.remove(client);
+		tx.commit();
 		return false;
 	}
 

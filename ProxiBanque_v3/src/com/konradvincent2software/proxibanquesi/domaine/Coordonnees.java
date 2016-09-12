@@ -11,11 +11,12 @@ import javax.persistence.Embeddable;
 
 @Embeddable
 public class Coordonnees {
-
+	
 	private String adresse;
 	private String ville;
 	private String telephone;
 	private String cp;
+
 
 	/**
 	 * Constructeur de la classe Coordonnees
@@ -35,6 +36,13 @@ public class Coordonnees {
 		this.ville = ville;
 		this.telephone = telephone;
 		this.cp = cp;
+	}
+	
+	/**
+	 * Constructeur par defaut de la classe coordonnees
+	 */
+	public Coordonnees(){
+		
 	}
 
 	/**
@@ -112,5 +120,4 @@ public class Coordonnees {
 	public void setCp(String cp) {
 		this.cp = cp;
 	}
-
 }
