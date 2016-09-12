@@ -23,7 +23,7 @@
 			<p:dataTable var="client" value="#{conseillerManagedBean.clients}"
 				style="width: 700" rowKey="#{client.id}" first="#{user.id}" rows="3">
 			
-<!-- 			<p:ajax event="rowSelect" update=":formDataTable:userUpdateForm" listener="#{userManagedBean.onUserSelect}"/>  -->
+<!-- 			<p:ajax event="rowSelect" update=":formClientTable:userUpdateForm" listener="#{conseillerManagedBean.onUserSelect}"/>  -->
 
 			<!-- Colonnes -->
 				<p:column>
@@ -45,6 +45,13 @@
 						<h:outputText value="Prenom" />
 					</f:facet>
 					<h:outputText value="#{client.prenom}" />
+				</p:column>
+				
+				<p:column>
+					<f:facet name="header"></f:facet>
+					<center>
+						<h:commandButton value="Modifier" action="#{clientManagedBean.modifierClient(client)}" />
+					</center>
 				</p:column>
 
 			</p:dataTable>

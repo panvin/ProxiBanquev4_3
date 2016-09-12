@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<link type="text/css" rel="stylesheet" href="themes/bluesky/skin.css" />
+</h:head>
+
+<h:body>
+
+	<center>
+		<h:form>
+			<p:panel id="userDetailsPanelId" header="Details du client"
+				style="width: 700;" widgetVar="oneUser">
+				<h:panelGrid columns="2" cellpadding="2" id="userUpdateForm"
+					border="0">
+					<h:outputLabel for="#{clientManagedBean.id}" value="ClientId" />
+					<h:inputText value="#{clientManagedBean.id}" style="width: 100;" readonly="true" ></h:inputText>
+
+<!-- 					<h:outputLabel for="#{userManagedBean.selectedUser.username}" -->
+<!-- 						value="Username" /> -->
+<!-- 					<h:inputText value="#{userManagedBean.selectedUser.username}" -->
+<!-- 						readonly="true"></h:inputText> -->
+
+<!-- 					<h:outputLabel for="#{userManagedBean.selectedUser.emailId}" -->
+<!-- 						value="EmailId" /> -->
+<!-- 					<h:inputText value="#{userManagedBean.selectedUser.emailId}" -->
+<!-- 						readonly="true"></h:inputText> -->
+
+<!-- 					<h:outputLabel for="#{userManagedBean.selectedUser.gender}" -->
+<!-- 						value="Gender" /> -->
+<!-- 					<h:inputText value="#{userManagedBean.selectedUser.gender}" -->
+<!-- 						readonly="true"></h:inputText> -->
+
+<!-- 					<h:outputLabel for="#{userManagedBean.selectedUser.dob}" -->
+<!-- 						value="DOB" /> -->
+<!-- 					<h:inputText value="#{userManagedBean.selectedUser.dob}" -->
+<!-- 						readonly="true"> -->
+<!-- 						<f:convertDateTime pattern="MM/dd/yyyy" /> -->
+<!-- 					</h:inputText> -->
+
+				</h:panelGrid>
+			</p:panel>
+		</h:form>
+	</center>
+</h:body>
+</html>

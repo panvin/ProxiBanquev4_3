@@ -6,12 +6,13 @@ import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
+import org.primefaces.event.SelectEvent;
+
 import com.konradvincent2software.proxibanquesi.domaine.Client;
 import com.konradvincent2software.proxibanquesi.domaine.Conseiller;
 import com.konradvincent2software.proxibanquesi.service.AuthService;
 import com.konradvincent2software.proxibanquesi.service.ClientService;
 import com.konradvincent2software.proxibanquesi.service.ConseillerService;
-
 
 //@ManagedBean(name="conseillerManagedBean")
 //@SessionScoped
@@ -30,6 +31,7 @@ public class ConseillerManagedBean implements Serializable {
 	private String login;
 	private String password;
 	private List<Client> clients;
+	private Client clientChoisi;
 	
 	// Constructeurs
 	public ConseillerManagedBean() {
@@ -73,6 +75,12 @@ public class ConseillerManagedBean implements Serializable {
 	public void setClients(List<Client> clients) {
 		this.clients = clients;
 	}
+	public Client getClientChoisi() {
+		return clientChoisi;
+	}
+	public void setClientChoisi(Client clientChoisi) {
+		this.clientChoisi = clientChoisi;
+	}
 
 	// Autres méthodes
 	public String authentifiaction() {
@@ -93,8 +101,11 @@ public class ConseillerManagedBean implements Serializable {
         }
     }
 	
-	public String test() {
-		return "login";
-	}
+	public void onUserSelect(SelectEvent event){ 
+    	this.clientChoisi =  (Client)event.getObject();
+    	System.out.println("Client choisi : " + clientChoisi.toString());
+    }
+	
+	
 	
 }
