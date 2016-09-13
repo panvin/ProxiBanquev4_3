@@ -18,32 +18,22 @@
 				style="width: 700;" widgetVar="oneUser">
 				<h:panelGrid columns="2" cellpadding="2" id="userUpdateForm"
 					border="0">
-					<h:outputLabel for="#{clientManagedBean.id}" value="ClientId" />
-					<h:inputText value="#{clientManagedBean.id}" style="width: 100;" readonly="true" ></h:inputText>
+					
+					<h:outputLabel for="#{conseillerManagedBean.clientChoisi.id}" value="Id" />
+					<h:inputText value="#{conseillerManagedBean.clientChoisi.id}" style="width: 100;" readonly="true"/>	 
 
-<!-- 					<h:outputLabel for="#{userManagedBean.selectedUser.username}" -->
-<!-- 						value="Username" /> -->
-<!-- 					<h:inputText value="#{userManagedBean.selectedUser.username}" -->
-<!-- 						readonly="true"></h:inputText> -->
-
-<!-- 					<h:outputLabel for="#{userManagedBean.selectedUser.emailId}" -->
-<!-- 						value="EmailId" /> -->
-<!-- 					<h:inputText value="#{userManagedBean.selectedUser.emailId}" -->
-<!-- 						readonly="true"></h:inputText> -->
-
-<!-- 					<h:outputLabel for="#{userManagedBean.selectedUser.gender}" -->
-<!-- 						value="Gender" /> -->
-<!-- 					<h:inputText value="#{userManagedBean.selectedUser.gender}" -->
-<!-- 						readonly="true"></h:inputText> -->
-
-<!-- 					<h:outputLabel for="#{userManagedBean.selectedUser.dob}" -->
-<!-- 						value="DOB" /> -->
-<!-- 					<h:inputText value="#{userManagedBean.selectedUser.dob}" -->
-<!-- 						readonly="true"> -->
-<!-- 						<f:convertDateTime pattern="MM/dd/yyyy" /> -->
-<!-- 					</h:inputText> -->
+					<h:outputLabel for="#{conseillerManagedBean.clientChoisi.nom}" value="Nom" />
+					<h:inputText value="#{conseillerManagedBean.clientChoisi.nom}" readonly="false" />
+					
+					<h:outputLabel for="#{conseillerManagedBean.clientChoisi.prenom}" value="Prenom" />
+					<h:inputText value="#{conseillerManagedBean.clientChoisi.prenom}" readonly="false" />
+					
+					<h:outputLabel for="#{conseillerManagedBean.clientChoisi.email}" value="Adresse e-mail" />
+					<h:inputText value="#{conseillerManagedBean.clientChoisi.email}" readonly="false" />
+				
 
 				</h:panelGrid>
+				<h:commandButton type="submit" value="Valider" action="#{conseillerManagedBean.modifierClient}"/>
 			</p:panel>
 		</h:form>
 	</center>

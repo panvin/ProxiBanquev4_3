@@ -15,16 +15,12 @@
 	<center>
 		<h1>Bienvenue <h:outputText value="#{conseillerManagedBean.prenom}" />&nbsp;<h:outputText value="#{conseillerManagedBean.nom}" />!</h1>
 		
-		
-<!-- 		<h:outputText value="#{conseillerManagedBean.nom}" /> -->
-		<h:form id="formClientTable">
+			<h:form id="formClientTable">
 			
 			<!-- Table de clients -->
 			<p:dataTable var="client" value="#{conseillerManagedBean.clients}"
-				style="width: 700" rowKey="#{client.id}" first="#{user.id}" rows="3">
+				style="width: 700" rowKey="#{client.id}" first="#{user.id}" rows="10">
 			
-<!-- 			<p:ajax event="rowSelect" update=":formClientTable:userUpdateForm" listener="#{conseillerManagedBean.onUserSelect}"/>  -->
-
 			<!-- Colonnes -->
 				<p:column>
 					<f:facet name="header">
@@ -50,7 +46,7 @@
 				<p:column>
 					<f:facet name="header"></f:facet>
 					<center>
-						<h:commandButton value="Modifier" action="#{clientManagedBean.modifierClient(client)}" />
+						<h:commandButton value="Modifier" action="#{conseillerManagedBean.selectionnerClient(client)}" />
 					</center>
 				</p:column>
 

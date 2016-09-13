@@ -6,8 +6,6 @@ import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
-import org.primefaces.event.SelectEvent;
-
 import com.konradvincent2software.proxibanquesi.domaine.Client;
 import com.konradvincent2software.proxibanquesi.domaine.Conseiller;
 import com.konradvincent2software.proxibanquesi.service.AuthService;
@@ -90,7 +88,6 @@ public class ConseillerManagedBean implements Serializable {
         	setNom(conseiller.getNom());
         	setPrenom(conseiller.getPrenom());
         	setClients(cls.lireClientsParConseiller(login));
-        	System.out.println(clients);
             return "acceuil";
         }
         else
@@ -101,11 +98,21 @@ public class ConseillerManagedBean implements Serializable {
         }
     }
 	
-	public void onUserSelect(SelectEvent event){ 
-    	this.clientChoisi =  (Client)event.getObject();
-    	System.out.println("Client choisi : " + clientChoisi.toString());
-    }
+//	public void onUserSelect(SelectEvent event){ 
+//    	this.clientChoisi =  (Client)event.getObject();
+//    	System.out.println("Client choisi : " + clientChoisi.toString());
+//    }
 	
+	public String selectionnerClient(Client client) {
+		setClientChoisi(client);
+		return "modifier";
+	}
 	
+	public String modifierClient() {
+//		System.out.println(clientChoisi.toString());
+		cls.modifierClient(clientChoisi.getId(), clientChoisi);
+//		setClients(cls.lireClientsParConseiller(login));
+		return "acceuil";
+	}
 	
 }
