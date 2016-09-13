@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<link type="text/css" rel="stylesheet" href="themes/bluesky/skin.css" />
+</h:head>
+
+<h:body>
+
+	<center>
+		<h1>
+			Comptes de
+			<h:outputText value="#{conseillerManagedBean.clientChoisi.civilite}" />&nbsp;
+			<h:outputText value="#{conseillerManagedBean.clientChoisi.prenom}" />&nbsp; 
+			<h:outputText value="#{conseillerManagedBean.clientChoisi.nom}" />
+		</h1>
+		
+		<h:form id="formClientTable">
+			
+			<!-- Table de clients -->
+			<p:dataTable var="compte" value="#{conseillerManagedBean.comptes}"
+				style="width: 700" rowKey="#{compte.numero}" first="#{compte.numero}">
+			
+			<!-- Colonnes -->
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="Numero" />
+					</f:facet>
+					<h:outputText value="#{compte.numero}" />
+				</p:column>
+				
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="Date de ouverture" />
+					</f:facet>
+					<h:outputText value="#{compte.dateOuverture}" />
+				</p:column>
+				
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="Solde" />
+					</f:facet>
+					<h:outputText value="#{compte.solde}" />
+				</p:column>
+				
+			</p:dataTable>
+			<br/>
+			<h:commandButton type="submit" value="Retour vers la liste des clients" action="acceuil"/>
+		</h:form>
+	</center>
+</h:body>
+</html>

@@ -11,7 +11,12 @@
 </h:head>
 
 <h:body>
-
+	 <div align="right">
+  		<h:form>
+  			<p:commandLink action="#{conseillerManagedBean.deconnexion}">Déconnexion</p:commandLink>
+  		</h:form>
+	</div>
+	 
 	<center>
 		<h1>Bienvenue <h:outputText value="#{conseillerManagedBean.prenom}" />&nbsp;<h:outputText value="#{conseillerManagedBean.nom}" />!</h1>
 		
@@ -19,7 +24,7 @@
 			
 			<!-- Table de clients -->
 			<p:dataTable var="client" value="#{conseillerManagedBean.clients}"
-				style="width: 700" rowKey="#{client.id}" first="#{user.id}" rows="10">
+				style="width: 700" rowKey="#{client.id}" first="#{user.id}">
 			
 			<!-- Colonnes -->
 				<p:column>
@@ -49,8 +54,17 @@
 						<h:commandButton value="Modifier" action="#{conseillerManagedBean.selectionnerClient(client)}" />
 					</center>
 				</p:column>
+				
+				<p:column>
+					<f:facet name="header"></f:facet>
+					<center>
+						<h:commandButton value="Voir comptes" action="#{conseillerManagedBean.voirComptes(client)}" />
+					</center>
+				</p:column>
 
 			</p:dataTable>
+			<br/>
+			<h:commandButton type="submit" value="Effectuer un virement" action="virement"/>
 		</h:form>
 	</center>
 </h:body>
