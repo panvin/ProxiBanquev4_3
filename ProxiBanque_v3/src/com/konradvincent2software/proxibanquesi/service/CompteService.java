@@ -19,26 +19,19 @@ import com.konradvincent2software.proxibanquesi.exception.CompteServiceException
  * service permet egalement de réaliser des virements comptes à comptes entre
  * les clients de l'etablissment.
  * 
- * @author Clement CASTRO et Vincent PANOUILLERES
+ * @author Konrad THOMAS et Vincent PANOUILLERES
  *
  */
 public class CompteService {
 
 	/**
 	 * Cette methode permet d'ajouter un compte à un client existant
-	 * 
-	 * @param client
-	 *            Objet client auquel le compte va etre ajoute (Objet de type Client)
-	 * @param typeCompte
-	 *            Type de compte: "Courant", "Epargne" (String)
-	 * @param numero
-	 *            Le Numero de compte (String)
-	 * @param solde
-	 *            Le Solde du compte (float)
-	 * @param dateOuverture
-	 *            La Date d'ouverture du compte (String)
-	 * @return Retourne un booleen: true si le compte est cree et ajoute, false
-	 *         sinon (booléen)
+	 * @param client Objet client auquel le compte va etre ajoute (Objet de type Client)
+	 * @param typeCompte Type de compte: "Courant", "Epargne" (String)
+	 * @param numero Le Numero de compte (String)
+	 * @param solde Le Solde du compte (float)
+	 * @param dateOuverture La Date d'ouverture du compte (String)
+	 * @return Retourne un booleen: true si le compte est cree et ajoute, false sinon (booléen)
 	 */
 	public boolean ajouterCompte(Client client, String typeCompte, String numero, float solde, String dateOuverture) {
 		CompteDaoJpa compteDao = new CompteDaoJpa();
@@ -62,15 +55,10 @@ public class CompteService {
 	}
 
 	/**
-	 * Cette methode permet de realiser un virement compte à compte au sein de
-	 * la banque
-	 * 
-	 * @param compteADebiter
-	 *            Le compte à debiter (String)
-	 * @param compteACrediter
-	 *            Le compte à crediter (String)
-	 * @param montant
-	 *            Le montant du virement. (float)
+	 * Cette methode permet de realiser un virement compte à compte au sein de la banque
+	 * @param compteADebiter Le compte à debiter (String)
+	 * @param compteACrediter Le compte à crediter (String)
+	 * @param montant Le montant du virement. (float)
 	 * @return Retourne un booléen: true si tout se déroule sans problemes sinon false. (booléen)
 	 */
 	public boolean virementCompteACompte(String numCompteADebiter, String numCompteACrediter, float montant) {
@@ -87,11 +75,8 @@ public class CompteService {
 	}
 
 	/**
-	 * Cette méthode permet de supprimer un compte de la base de donnée à partir
-	 * du numero de compte
-	 * 
-	 * @param numeroCompte
-	 *            Le numero du compte à supprimer. (String)
+	 * Cette méthode permet de supprimer un compte de la base de donnée à partir du numero de compte
+	 * @param numeroCompte Le numero du compte à supprimer. (String)
 	 * @return Retourne un booléen: true si tout se déroule sans problemes sinon false. (booléen)
 	 */
 	public boolean supprimerCompte(String numeroCompte) {
@@ -111,11 +96,8 @@ public class CompteService {
 	}
 
 	/**
-	 * Cette méthode permet de consulter les informations relatives à un compte
-	 * et de les retourner sous forme d'objet Compte
-	 * 
-	 * @param numeroCompte
-	 *            Le numero de compte dont on souhaite visualiser les infos (String)
+	 * Cette méthode permet de consulter les informations relatives à un compte et de les retourner sous forme d'objet Compte
+	 * @param numeroCompte Le numero de compte dont on souhaite visualiser les infos (String)
 	 * @return Retourne l'objet compte demande. (Objet de type COmpte)
 	 */
 	public Compte consulterCompte(String numeroCompte) {
@@ -137,13 +119,9 @@ public class CompteService {
 	}	
 
 	/**
-	 * Cette methode permet de mettre à jour les donnes du compte en banque à
-	 * partir de son numero.
-	 * 
-	 * @param numeroCompte
-	 *            Le numéro du compte dont on souhaite faire une modification. (String)
-	 * @param montant
-	 *            Le montant de la transaction effectuée sur le compte. (float)
+	 * Cette methode permet de mettre à jour les donnes du compte en banque à partir de son numero.
+	 * @param numeroCompte Le numéro du compte dont on souhaite faire une modification. (String)
+	 * @param montant Le montant de la transaction effectuée sur le compte. (float)
 	 */
 	public void modifierCompte(String numeroCompte, float montant) {
 		CompteDaoJpa compteDao = new CompteDaoJpa();

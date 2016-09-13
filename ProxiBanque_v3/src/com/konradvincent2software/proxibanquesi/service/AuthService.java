@@ -10,22 +10,17 @@ import com.konradvincent2software.proxibanquesi.domaine.Conseiller;
  * ses informations (login et password) sont correctes. Dans le cas contraire il
  * ne pourra pas s'authentifier.
  * 
- * @author Clement CASTRO et Vincent PANOUILLERES
+ * @author Konrad THOMAS et Vincent PANOUILLERES
  *
  */
 public class AuthService {
 
 	/**
-	 * Cette méthode permet à l'utilisateur de s'identifier. Elle retourne un
-	 * booléen true si l'authentification a reussi et sinon elle retourne un
-	 * false
-	 * 
-	 * @param login
-	 *            Le login de l'utilisateur (String)
-	 * @param pwd
-	 *            Le mot de passe de l'utilisateur (String)
-	 * @return Retourne un booléen true si l'authentification réussie, retourne
-	 *         false sinon. (booléen)
+	 * Cette méthode permet à l'utilisateur de s'identifier. 
+	 * Elle retourne un booléen true si l'authentification a reussi et sinon elle retourne un false
+	 * @param login Le login de l'utilisateur (String)
+	 * @param pwd Le mot de passe de l'utilisateur (String)
+	 * @return Retourne un booléen true si l'authentification réussie, retourne false sinon. (booléen)
 	 */
 	public boolean authConseiller(String login, String pwd) {
 		ConseillerDaoJpa conseillerDao = new ConseillerDaoJpa();
