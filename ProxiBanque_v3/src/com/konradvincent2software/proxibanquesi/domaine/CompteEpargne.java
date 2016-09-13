@@ -12,7 +12,6 @@ import javax.persistence.OneToOne;
 
 /**
  * Classe CompteEpargne, représente le compte epargne d'un client proxibanque
- * 
  * @author Konrad THOMAS et Vincent PANOUILLERES
  *
  */
@@ -28,15 +27,10 @@ public class CompteEpargne extends Compte {
 
 	/**
 	 * Constructeur de la classe CompteEpargne
-	 * 
-	 * @param numero
-	 *            Le numero du compte (String)
-	 * @param solde
-	 *            Le solde du compte (float)
-	 * @param dateOuverture
-	 *            La date d'ouverture du compte (String)
-	 * @param titulaire
-	 *            Le Client titulaire du compte (Objet de type CLient)
+	 * @param numero Le numero du compte (String)
+	 * @param solde Le solde du compte (float)
+	 * @param dateOuverture La date d'ouverture du compte (String)
+	 * @param titulaire Le Client titulaire du compte (Objet de type CLient)
 	 */
 	public CompteEpargne(String numero, Float solde, String dateOuverture, Client titulaire) {
 		super(numero, solde, dateOuverture);
@@ -45,13 +39,9 @@ public class CompteEpargne extends Compte {
 
 	/**
 	 * Constructeur de la classe CompteEpargne
-	 * 
-	 * @param numero
-	 *            Le numero du compte (String)
-	 * @param solde
-	 *            Le solde du compte (float)
-	 * @param dateOuverture
-	 *            La date d'ouverture du compte (String)
+	 * @param numero Le numero du compte (String)
+	 * @param solde Le solde du compte (float)
+	 * @param dateOuverture La date d'ouverture du compte (String)
 	 */
 	public CompteEpargne(String numero, Float solde, String dateOuverture) {
 		super(numero, solde, dateOuverture);
@@ -63,7 +53,6 @@ public class CompteEpargne extends Compte {
 
 	/**
 	 * Méthode permettant d'obtenir le titulaire du CompteEpargne
-	 * 
 	 * @return Le Client titulaire du compte (Objet de type CLient)
 	 */
 	public Client getTitulaire() {
@@ -72,9 +61,7 @@ public class CompteEpargne extends Compte {
 
 	/**
 	 * Méthode permettant de modifier le titulaire du CompteEpargne
-	 * 
-	 * @param titulaire
-	 *            Le Client titulaire du compte (Objet de type CLient)
+	 * @param titulaire Le Client titulaire du compte (Objet de type CLient)
 	 */
 	public void setTitulaire(Client titulaire) {
 		this.titulaire = titulaire;

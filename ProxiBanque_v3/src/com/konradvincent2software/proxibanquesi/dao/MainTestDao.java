@@ -12,6 +12,7 @@ import com.konradvincent2software.proxibanquesi.domaine.CompteEpargne;
 import com.konradvincent2software.proxibanquesi.domaine.Conseiller;
 import com.konradvincent2software.proxibanquesi.domaine.Coordonnees;
 import com.konradvincent2software.proxibanquesi.service.AuthService;
+import com.konradvincent2software.proxibanquesi.service.CompteService;
 
 public class MainTestDao {
 
@@ -23,8 +24,8 @@ public class MainTestDao {
 		
 		ClientDaoJpa clientDao = new ClientDaoJpa();
 	
-	Conseiller conseiller1 = new Conseiller("castro", "clement", "Monsieur", "ccastro", "gtm");
-	Conseiller conseiller2 = new Conseiller("panouilleres", "vincent", "Monsieur", "vpanouilleres", "gtm");
+	Conseiller conseiller1 = new Conseiller("Thomas", "Konrad", "Monsieur", "kthomas", "gtm");
+	Conseiller conseiller2 = new Conseiller("Panouilleres", "Vincent", "Monsieur", "vpanouilleres", "gtm");
 	Client client1 = new Client("Marley", "Bob", "Monsieur", "bobby.marley@reggae.com", "72 rue de la concorde", "Lyon", "06.48.95.69.32", "69000", 1, conseiller1);
 	Client client2 = new Client("Holidays", "Johny", "Monsieur", "johny.hollidays@vacances.fr", "45 rue du palace", "Lyon", "06.48.93.45.21", "69000", 2, conseiller1);
 	Client client3 = new Client("Morose", "Marilyn", "Madame", "marilyn.morose@chanteuse.com", "48 rue pompidou", "Lyon", "06.56.98.64.16", "69000", 3, conseiller1);
@@ -41,8 +42,8 @@ public class MainTestDao {
 	ArrayList<Client> liste2 = new ArrayList<Client>();
 	liste2.add(client6);
 	liste2.add(client7);
-	conseiller1.setClients(liste1);
-	conseiller2.setClients(liste2);
+	//conseiller1.setClients(liste1);
+	//conseiller2.setClients(liste2);
 	
 	CompteEpargne compte1 = new CompteEpargne("08457965", (float)58835, "08/12/2015", client3);
 	CompteEpargne compte2 = new CompteEpargne("46875231", (float) 4500, "05/05/2005", client4);
@@ -70,11 +71,28 @@ public class MainTestDao {
 
 	ConseillerDaoJpa conseillerJpa = new ConseillerDaoJpa();
 	
-	conseillerJpa.createConseiller(conseiller1);
-	conseillerJpa.createConseiller(conseiller2);
+	//conseillerJpa.createConseiller(conseiller1);
+	//conseillerJpa.createConseiller(conseiller2);
+//	clientDao.updateClientById(1, client1);
+//	clientDao.updateClientById(2, client2);
+//	clientDao.updateClientById(3, client3);
+//	clientDao.updateClientById(4, client4);
+//	clientDao.updateClientById(5, client5);
+//	clientDao.updateClientById(6, client6);
+//	clientDao.updateClientById(7, client7);
+//	conseillerJpa.createConseiller(conseiller1);
+//	conseillerJpa.createConseiller(conseiller2);
+//	
+//	clientDao.createClient(client1);
+//	clientDao.createClient(client2);
+//	clientDao.createClient(client3);
+//	clientDao.createClient(client4);
+//	clientDao.createClient(client5);
+//	clientDao.createClient(client6);
+//	clientDao.createClient(client7);	
 	
-	
-	
+	CompteService serviceCompte = new CompteService();
+	serviceCompte.virementCompteACompte("4578965", "7852164", (float) 100); 
 	}
 
 }

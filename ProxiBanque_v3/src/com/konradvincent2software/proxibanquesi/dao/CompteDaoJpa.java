@@ -11,6 +11,12 @@ import com.konradvincent2software.proxibanquesi.domaine.Compte;
 import com.konradvincent2software.proxibanquesi.domaine.CompteCourant;
 import com.konradvincent2software.proxibanquesi.domaine.CompteEpargne;
 
+/**
+ * Classe de DAO dédié au domaine métier Compte
+ * Cette classe permet de gerer en base l'ensemble des objets comptes
+ * @author Konrad THOMAS et Vincent PANOUILLERES 
+ *
+ */
 public class CompteDaoJpa extends GestionEntityManager implements ICompteDao {
 
 	private EntityManager em;

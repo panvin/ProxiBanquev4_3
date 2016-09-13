@@ -8,9 +8,9 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
 /**
- * Classe abstraite Compte, représente les comptes des clients de proxibanque C'est à partir de cette classe que sont construites les Classes CompteEpargne et CompteCourant. Contient le solde, le numero de compte, et la date d'ouverture du compte.
+ * Classe abstraite Compte, représente les comptes des clients de proxibanque 
+ * C'est à partir de cette classe que sont construites les Classes CompteEpargne et CompteCourant. Contient le solde, le numero de compte, et la date d'ouverture du compte.
  * @author Konrad THOAMAS et Vincent PANOUILLERES
- *
  */
 
 @Entity

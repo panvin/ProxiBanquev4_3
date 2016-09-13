@@ -27,15 +27,10 @@ public class CompteCourant extends Compte {
 
 	/**
 	 * Constructeur de la classe CompteCourant
-	 * 
-	 * @param numero
-	 *            Le numero du compte (String)
-	 * @param solde
-	 *            Le solde du compte (String)
-	 * @param dateOuverture
-	 *            La date d'ouverture du compte (String)
-	 * @param titulaire
-	 *            Le Client titulaire du compte (Objet de type CLient)
+	 * @param numero Le numero du compte (String)
+	 * @param solde Le solde du compte (String)
+	 * @param dateOuverture La date d'ouverture du compte (String)
+	 * @param titulaire Le Client titulaire du compte (Objet de type CLient)
 	 */
 	public CompteCourant(String numero, Float solde, String dateOuverture, Client titulaire) {
 		super(numero, solde, dateOuverture);
@@ -72,6 +67,5 @@ public class CompteCourant extends Compte {
 	public void setTitulaire(Client titulaire) {
 		this.titulaire = titulaire;
 	}
-	
-	
+
 }
