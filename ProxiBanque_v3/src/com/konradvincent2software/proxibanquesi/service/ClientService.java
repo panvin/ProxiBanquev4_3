@@ -6,11 +6,8 @@ import com.konradvincent2software.proxibanquesi.domaine.Client;
 import com.konradvincent2software.proxibanquesi.domaine.CompteCourant;
 import com.konradvincent2software.proxibanquesi.domaine.CompteEpargne;
 import com.konradvincent2software.proxibanquesi.domaine.Coordonnees;
-import com.konradvincent2software.proxibanquesi.dao.ClientDao;
 import com.konradvincent2software.proxibanquesi.dao.ClientDaoJpa;
-import com.konradvincent2software.proxibanquesi.dao.CompteDao;
 import com.konradvincent2software.proxibanquesi.dao.CompteDaoJpa;
-import com.konradvincent2software.proxibanquesi.dao.CoordonneesDao;
 
 /**
  * Classe du domaine service qui concerne l'ensemble des services Clients. 
@@ -78,18 +75,11 @@ public class ClientService {
 	/**
 	 * Cette méthode permet de recuperer les informations client sous la forme d'un objet Client.
 	 * @param idClient L'identifiant (id) du client dont on souhaite consulter les données. (int)
-	 * @return Retourne un booléen: true si tout se déroule sans problemes sinon false. (booléen)
+	 * @return Retourne un client sous la forme d'un objet de la couche domaine client (Objet de type CLient)
 	 */
 	public Client lireClient(int idClient) {
-		ClientDaoJpa clientDao = new ClientDaoJpa();
-		CompteDaoJpa compteDao = new CompteDaoJpa();
-		
+		ClientDaoJpa clientDao = new ClientDaoJpa();		
 		Client client = clientDao.readClientById(idClient);
-		
-		CompteEpargne compteEpargneClient = (CompteEpargne) compteDao.readCompteByClientAndByType(idClient, "Epargne");
-		client.setCompteEpargne(compteEpargneClient);
-		CompteCourant compteCourantClient = (CompteCourant) compteDao.readCompteByClientAndByType(idClient, "Courant");
-		client.setCompteCourant(compteCourantClient);
 		return client;
 	}
 

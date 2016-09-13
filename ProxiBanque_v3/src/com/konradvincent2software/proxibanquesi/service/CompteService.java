@@ -2,6 +2,9 @@ package com.konradvincent2software.proxibanquesi.service;
 
 import java.util.ArrayList;
 
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+
 import com.konradvincent2software.proxibanquesi.dao.ClientDaoJpa;
 import com.konradvincent2software.proxibanquesi.dao.CompteDaoJpa;
 import com.konradvincent2software.proxibanquesi.domaine.Client;
@@ -22,6 +25,8 @@ import com.konradvincent2software.proxibanquesi.exception.CompteServiceException
  */
 public class CompteService {
 
+	private static Logger logger = Logger.getLogger(CompteService.class);
+	
 	/**
 	 * Cette methode permet d'ajouter un compte à un client existant
 	 * @param client Objet client auquel le compte va etre ajoute (Objet de type Client)
@@ -31,9 +36,12 @@ public class CompteService {
 	 * @param dateOuverture La Date d'ouverture du compte (String)
 	 * @return Retourne un booleen: true si le compte est cree et ajoute, false sinon (booléen)
 	 */
-	public boolean ajouterCompte(Client client, String typeCompte, String numero, float solde, String dateOuverture) {
+	public boolean ajouterCompte(Client client, String typeCompte, String numero, float solde, String dateOuverture) throws CompteServiceException {
 		CompteDaoJpa compteDao = new CompteDaoJpa();
-		ClientDaoJpa clientDao = new ClientDaoJpa();
+		
+		if (client == null){
+			throw new CompteServiceException("Le client n'existe pas, impossible de créer un compte");
+		}
 		
 		if(typeCompte.equals("Epargne") && client.getCompteEpargne() == null) {
 			CompteEpargne compteClient = new CompteEpargne(numero, solde, dateOuverture, client);
@@ -68,6 +76,8 @@ public class CompteService {
 
 		statusCompteADebiter = compteDao.updateCompteByNum(numCompteADebiter, soldeCompteADebiter);
 		statusCompteACrediter = compteDao.updateCompteByNum(numCompteACrediter, soldeCompteACrediter);
+		
+		logger.trace("Transfert realisé du compte: " +numCompteADebiter + " vers le compte: " + numCompteACrediter + " pour un montant de: " +montant + " Euros.");
 
 		return (statusCompteADebiter && statusCompteACrediter);
 	}
