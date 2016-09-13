@@ -124,6 +124,13 @@ public class Client extends Personne {
 		this.id = idClient;
 		this.email = emailClient;
 	}
+	
+	/**
+	 * Constructeur par défaut
+	 */
+	public Client(){
+		super();
+	}
 
 	/**
 	 * Méthode permettant d'obtenir l'Email du Client

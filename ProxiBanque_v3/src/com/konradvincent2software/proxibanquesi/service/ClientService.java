@@ -7,7 +7,9 @@ import com.konradvincent2software.proxibanquesi.domaine.CompteCourant;
 import com.konradvincent2software.proxibanquesi.domaine.CompteEpargne;
 import com.konradvincent2software.proxibanquesi.domaine.Coordonnees;
 import com.konradvincent2software.proxibanquesi.dao.ClientDao;
+import com.konradvincent2software.proxibanquesi.dao.ClientDaoJpa;
 import com.konradvincent2software.proxibanquesi.dao.CompteDao;
+import com.konradvincent2software.proxibanquesi.dao.CompteDaoJpa;
 import com.konradvincent2software.proxibanquesi.dao.CoordonneesDao;
 
 /**
@@ -32,14 +34,12 @@ public class ClientService {
 	public boolean creerClient(Client client) {
 		boolean status, statusCreationClient, statusCreationCoord, statusCreationCompteEpargne,
 				statusCreationCompteCourant;
-		ClientDao clientDao = new ClientDao();
-		CoordonneesDao coordonneesDao = new CoordonneesDao();
-		CompteDao compteDao = new CompteDao();
+		ClientDaoJpa clientDao = new ClientDaoJpa();
+		CompteDaoJpa compteDao = new CompteDaoJpa();
 		
 		statusCreationClient = clientDao.createClient(client);
-		statusCreationCoord = coordonneesDao.createCoordonnees(client.getCoordonnees(), client.getId());
 
-		status = statusCreationClient && statusCreationCoord;
+		status = statusCreationClient;
 
 		if (client.getCompteEpargne() != null) {
 			statusCreationCompteEpargne = compteDao.createCompte(client.getCompteEpargne(), "Epargne", client.getId());
@@ -67,10 +67,8 @@ public class ClientService {
 	 */
 	public boolean modifierClient(int idClient, Client client) {
 		boolean status;
-		ClientDao clientDao = new ClientDao();
-		CoordonneesDao coordonneesDao = new CoordonneesDao();
+		ClientDaoJpa clientDao = new ClientDaoJpa();
 		status = clientDao.updateClientById(idClient, client);
-		coordonneesDao.updateCoordonneesByClientId(idClient, client.getCoordonnees());
 		return status;
 	}
 
@@ -82,10 +80,8 @@ public class ClientService {
 	 */
 	public boolean suppressionClient(int idClient) {
 		boolean status;
-		CoordonneesDao coordonneesDao = new CoordonneesDao();
-		CompteDao compteDao = new CompteDao();
-		coordonneesDao.deleteCoordonneesByClientId(idClient);
-		ClientDao clientDao = new ClientDao();
+		CompteDaoJpa compteDao = new CompteDaoJpa();
+		ClientDaoJpa clientDao = new ClientDaoJpa();
 		compteDao.deleteCompteByIdClient(idClient);
 		status = clientDao.deleteClientById(idClient);
 		return status;
@@ -103,13 +99,10 @@ public class ClientService {
 	 *         false. (booléen)
 	 */
 	public Client lireClient(int idClient) {
-		ClientDao clientDao = new ClientDao();
-		CoordonneesDao coordonneesDao = new CoordonneesDao();
-		CompteDao compteDao = new CompteDao();
+		ClientDaoJpa clientDao = new ClientDaoJpa();
+		CompteDaoJpa compteDao = new CompteDaoJpa();
 		
 		Client client = clientDao.readClientById(idClient);
-		Coordonnees coordClient = coordonneesDao.readCoordonneesByIdClient(idClient);
-		client.setCoordonnees(coordClient);
 		
 		CompteEpargne compteEpargneClient = (CompteEpargne) compteDao.readCompteByClientAndByType(idClient, "Epargne");
 		client.setCompteEpargne(compteEpargneClient);
@@ -127,7 +120,7 @@ public class ClientService {
 	 */
 	public ArrayList<Client> lireTousLesCLients() {
 		ArrayList<Client> listeClient;
-		ClientDao clientDao = new ClientDao();
+		ClientDaoJpa clientDao = new ClientDaoJpa();
 		listeClient = (ArrayList<Client>) clientDao.readAllClient();
 		return listeClient;
 	}
@@ -145,7 +138,7 @@ public class ClientService {
 	 */
 	public ArrayList<Client> lireClientsParConseiller(String login) {
 		ArrayList<Client> listeClient;
-		ClientDao clientDao = new ClientDao();
+		ClientDaoJpa clientDao = new ClientDaoJpa();
 		
 		listeClient = (ArrayList<Client>) clientDao.readClientByConseiller(login);
 		return listeClient;

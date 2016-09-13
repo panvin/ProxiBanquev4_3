@@ -1,7 +1,10 @@
 package com.konradvincent2software.proxibanquesi.dao;
 
+import java.util.ArrayList;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
 
 import com.konradvincent2software.proxibanquesi.domaine.Client;
 import com.konradvincent2software.proxibanquesi.domaine.Compte;
@@ -60,8 +63,19 @@ public class CompteDaoJpa extends GestionEntityManager implements ICompteDao {
 
 	@Override
 	public boolean deleteCompteByIdClient(int idClient) {
-		// TODO Auto-generated method stub
+		Query query = em.createQuery("DELETE FROM CompteCourant e WHERE e.titulaire.id = :idClient").setParameter("idClient", idClient);
+		query.executeUpdate();
+		query = em.createQuery("DELETE FROM CompteEpargne e WHERE e.titulaire.id = :idClient").setParameter("idClient", idClient);
+		query.executeUpdate();
 		return false;
+	}
+	public ArrayList<Compte> readAllCompte() {
+		Query query = em.createQuery("SELECT e FROM Compte e");
+	    return (ArrayList<Compte>) query.getResultList();
+	}
+	public CompteEpargne readCompteByClientAndByType(int idClient, String string) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

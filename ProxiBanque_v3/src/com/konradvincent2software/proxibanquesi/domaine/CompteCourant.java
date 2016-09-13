@@ -12,7 +12,7 @@ import javax.persistence.OneToOne;
 
 /**
  * Classe CompteCourant, représente le compte courant d'un client proxibanque
- * @author Clement CASTRO et Vincent PANOUILLERES
+ * @author Konrad THOMAS et Vincent PANOUILLERES
  *
  */
 

@@ -1,5 +1,7 @@
 package com.konradvincent2software.proxibanquesi.dao;
 
+import java.util.ArrayList;
+
 import com.konradvincent2software.proxibanquesi.domaine.Compte;
 
 public interface ICompteDao {
@@ -8,5 +10,6 @@ public interface ICompteDao {
 	public boolean updateCompteByNum(String numCompte, float newSolde);
 	public boolean deleteCompteByNum(String numCompte);
 	public boolean deleteCompteByIdClient(int idClient);
+	public ArrayList<Compte> readAllCompte();
 
 }
