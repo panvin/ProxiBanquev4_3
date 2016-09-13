@@ -1,0 +1,90 @@
+@CHARSET "ISO-8859-1";
+
+#banner {
+		background: url("../images/banner2.jpg");
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		color: #ffffff;
+		padding: 23em 0em 14em;
+		text-align: center;
+		min-height: 820px;
+	}
+
+		#banner h2 {
+			color: #ffffff;
+			font-size: 3em;
+			line-height: 1em;
+			margin: 0 0 0.5em 0;
+			padding: 0;
+		}
+
+		#banner p {
+			font-size: 1.5em;
+			margin: 1.5em 0 0 0;
+		}
+
+#one {
+	background-color : #3ba666;
+	padding: 5em 10em 10em 10em;
+	margin:0 0 0 0;
+}
+
+.center {
+	text-align: center;
+}
+
+	.center h2 {
+		color: #ffffff;
+		font-size: 2em;
+		line-height: 1em;
+		margin: 0 0 0.5em 0;
+		padding: 0;
+	}
+	
+	.center p{
+		color: #ffffff;
+		font-size: 1.2em;
+		line-height: 1em;
+		margin: 2em 0.5em 0 0.5em;
+		padding: 0;
+	}
+
+
+#div1 .glyphicon {
+	font-size: 75px;
+	color: #ffffff;
+	margin: 0.5em 0 0 0;
+}
+
+.form-group {
+	margin: 0 1em 0 0.5em;
+}
+
+.alert {
+	position: center;
+	width: 40%;
+	margin: 0 30% 0 30%;
+}
+
+.container-fluid {
+	padding: 0 4% 0 0;
+}
+
+.container{
+	margin: 0 30% 0 30%;
+	width: 40%;
+}
+
+.navbar {
+	margin-bottom: -1.7px;
+}
+
+.panel {
+	margin: 0 10% 0 10%;
+	width: 80%;
+}
+
+.table {
+	color: #000000;
+}
