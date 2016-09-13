@@ -17,6 +17,11 @@ import com.konradvincent2software.proxibanquesi.service.ConseillerService;
 
 //@ManagedBean(name="conseillerManagedBean")
 //@SessionScoped
+/**
+ * Classe associée a la couche présentation ConseillerMangaedBean
+ * @author Konrad THOMAS et Vincent PANOUILLERES
+ *
+ */
 public class ConseillerManagedBean implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
