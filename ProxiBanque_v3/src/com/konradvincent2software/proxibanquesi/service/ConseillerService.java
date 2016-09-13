@@ -1,6 +1,6 @@
 package com.konradvincent2software.proxibanquesi.service;
 
-import com.konradvincent2software.proxibanquesi.dao.ConseillerDao;
+import com.konradvincent2software.proxibanquesi.dao.ConseillerDaoJpa;
 import com.konradvincent2software.proxibanquesi.domaine.Conseiller;
 
 /**
@@ -8,7 +8,7 @@ import com.konradvincent2software.proxibanquesi.domaine.Conseiller;
  * conseiller Cette classe permet de créer, modifier, supprimer, lire ou effacer
  * un conseiller
  * 
- * @author Clement CASTRO et Vincent PANOUILLERES
+ * @author Konrad THOMAS et Vincent PANOUILLERES
  *
  */
 public class ConseillerService {
@@ -22,9 +22,15 @@ public class ConseillerService {
 	 * @return Retourne un booléen: true si tout se déroule sans problemes sinon
 	 *         false. (booléen)
 	 */
-	public void creerConseiller(Conseiller conseiller) {
-		ConseillerDao conseillerDao = new ConseillerDao();
+	public boolean creerConseiller(Conseiller conseiller) {
+		try{
+		ConseillerDaoJpa conseillerDao = new ConseillerDaoJpa();
 		conseillerDao.createConseiller(conseiller);
+		return true;
+		}
+		catch(Exception e){
+			return false;
+		}
 
 	}
 
@@ -38,9 +44,14 @@ public class ConseillerService {
 	 * @return Retourne un booléen: true si tout se déroule sans problemes sinon
 	 *         false. (booléen)
 	 */
-	public void modifierConseiller(String login, Conseiller conseiller) {
-		ConseillerDao conseillerDao = new ConseillerDao();
+	public boolean modifierConseiller(String login, Conseiller conseiller) {
+		try{
+		ConseillerDaoJpa conseillerDao = new ConseillerDaoJpa();
 		conseillerDao.updateConseillerByLogin(login, conseiller);
+		return true;
+		} catch (Exception e){
+			return false;
+		}
 	}
 
 	/**
@@ -52,9 +63,14 @@ public class ConseillerService {
 	 * @return Retourne un booléen: true si tout se déroule sans problemes sinon
 	 *         false. (booléen)
 	 */
-	public void supprimerConseiller(String login) {
-		ConseillerDao conseillerDao = new ConseillerDao();
-		conseillerDao.deleteConseillerByLogin(login);
+	public boolean supprimerConseiller(String login) {
+		try{
+			ConseillerDaoJpa conseillerDao = new ConseillerDaoJpa();
+			conseillerDao.deleteConseillerByLogin(login);
+			return true;
+		}catch (Exception e){
+			return false;
+		}
 	}
 
 	/**
@@ -66,7 +82,7 @@ public class ConseillerService {
 	 *         (Objet de type Conseiller)
 	 */
 	public Conseiller lireConseiller(String login) {
-		ConseillerDao conseillerDao = new ConseillerDao();
+		ConseillerDaoJpa conseillerDao = new ConseillerDaoJpa();
 		Conseiller conseiller = conseillerDao.readConseillerByLogin(login);
 		return conseiller;
 	}

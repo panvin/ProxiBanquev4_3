@@ -8,11 +8,11 @@ import com.konradvincent2software.proxibanquesi.domaine.Conseiller;
 public class ConseillerDaoJpa extends GestionEntityManager implements IConseillerDao {
 
 	private EntityManager em;
-	
-	public ConseillerDaoJpa(){
+
+	public ConseillerDaoJpa() {
 		this.em = this.creerEntityManager();
 	}
-	
+
 	@Override
 	public void createConseiller(Conseiller conseiller) {
 		EntityTransaction tx = em.getTransaction();
@@ -23,7 +23,7 @@ public class ConseillerDaoJpa extends GestionEntityManager implements IConseille
 
 	@Override
 	public Conseiller readConseillerByLogin(String loginInit) {
-		
+
 		Conseiller conseiller = em.find(Conseiller.class, loginInit);
 		return conseiller;
 	}
@@ -40,12 +40,10 @@ public class ConseillerDaoJpa extends GestionEntityManager implements IConseille
 		conseiller.setClients(newConseiller.getClients());
 		tx.commit();
 
-
 	}
 
 	@Override
 	public void deleteConseillerByLogin(String loginInit) {
-		
 		Conseiller conseiller = this.readConseillerByLogin(loginInit);
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
