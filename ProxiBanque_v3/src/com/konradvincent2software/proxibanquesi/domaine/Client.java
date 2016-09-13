@@ -95,6 +95,8 @@ public class Client extends Personne {
 	 * @param nom Le Nom du client (String).
 	 * @param prenom Le Prenom du client (String).
 	 * @param civilite La civilité du client (String).
+	 * @param emailClient L'email du client (String)
+	 * @param idClient L'id du client (int).
 	 */
 	public Client(String nom, String prenom, String civilite, String emailClient, int idClient) {
 		super(nom, prenom, civilite);
@@ -135,7 +137,7 @@ public class Client extends Personne {
 
 	/**
 	 * Méthode permettant de modifier les coordonnées du Client
-	 * @param Les coordonnées du client (Objet de type Coordonnées)
+	 * @param coordonnees Les coordonnées du client (Objet de type Coordonnées)
 	 */
 	public void setCoordonnees(Coordonnees coordonnees) {
 		this.coordonnees = coordonnees;

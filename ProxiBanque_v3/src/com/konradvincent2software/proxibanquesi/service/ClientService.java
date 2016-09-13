@@ -50,6 +50,7 @@ public class ClientService {
 	 * Cette méthode permet de modifier un client à partir de son identifiant (id).
 	 * @param idClient L'identifiant du client qu'on souhaite changer. (int)
 	 * @param client L'objet client qui va permettre de mettre à jour le client dans la base de données. (Objet de type Client)
+	 * @return Retourne un booléen: true si tout se déroule sans problemes sinon false. (booléen).
 	 */
 	public boolean modifierClient(int idClient, Client client) {
 		boolean status;
@@ -61,6 +62,7 @@ public class ClientService {
 	/**
 	 * Cette méthode permet de supprimer un client de la base de donnée.
 	 * @param idClient L'identifiant (id) du client qu'on souhaite supprimer.
+	 * @return Retourne un booléen: true si tout se déroule sans problemes sinon false. (booléen)
 	 */
 	public boolean suppressionClient(int idClient) {
 		boolean status;
@@ -85,7 +87,7 @@ public class ClientService {
 
 	/**
 	 * Cette méthode permet de recuperer une liste de l'ensemble des clients qui existent.
-	 * @return Cette methode retourne une liste de Client sous forme d'ArrayList (ArrayList<Client>)
+	 * @return Cette methode retourne une liste de Client sous forme d'ArrayList (ArrayList de Client)
 	 */
 	public ArrayList<Client> lireTousLesCLients() {
 		ArrayList<Client> listeClient;

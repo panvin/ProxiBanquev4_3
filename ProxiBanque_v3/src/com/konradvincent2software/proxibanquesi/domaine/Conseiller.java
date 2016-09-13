@@ -33,7 +33,7 @@ public class Conseiller extends Personne {
 	 * @param civilite La civilite du conseiller (String)
 	 * @param login Le login unique du conseiller (String)
 	 * @param password Le mot de passe du conseiller (String)
-	 * @param clients La liste des clients du conseiller (List<Client>)
+	 * @param clients La liste des clients du conseiller (List de Client)
 	 */
 	public Conseiller(String nom, String prenom, String civilite, String login, String password, List<Client> clients) {
 		super(nom, prenom, civilite);
@@ -47,6 +47,8 @@ public class Conseiller extends Personne {
 	 * @param nom Le nom du conseiller (String)
 	 * @param prenom Le prenom du conseiller (String)
 	 * @param civilite La civilite du conseiller (String)
+	 * @param login Le login du conseiller (String)
+	 * @param password Le mot de passe du conseiller (String)
 	 */
 	public Conseiller(String nom, String prenom, String civilite, String login, String password) {
 		super(nom, prenom, civilite);
@@ -92,7 +94,7 @@ public class Conseiller extends Personne {
 
 	/**
 	 * Méthode permettant d'obtenir la Liste des Clients du Conseiller
-	 * @return a liste des clients du conseiller (List<Client>)
+	 * @return a liste des clients du conseiller (List de Client)
 	 */
 	public List<Client> getClients() {
 		return clients;
@@ -100,7 +102,7 @@ public class Conseiller extends Personne {
 
 	/**
 	 * Méthode permettant de modifier la liste des Clients du Conseiller
-	 * @param clients La liste des clients du conseiller (List<Client>)
+	 * @param clients La liste des clients du conseiller (List de Client)
 	 */
 	public void setClients(List<Client> clients) {
 		this.clients = clients;

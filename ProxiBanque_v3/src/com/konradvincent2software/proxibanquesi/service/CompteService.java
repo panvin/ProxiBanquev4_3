@@ -35,6 +35,7 @@ public class CompteService {
 	 * @param solde Le Solde du compte (float)
 	 * @param dateOuverture La Date d'ouverture du compte (String)
 	 * @return Retourne un booleen: true si le compte est cree et ajoute, false sinon (booléen)
+	 * @throws CompteServiceException si des erreurs surviennent dans la couche service.
 	 */
 	public boolean ajouterCompte(Client client, String typeCompte, String numero, float solde, String dateOuverture) throws CompteServiceException {
 		CompteDaoJpa compteDao = new CompteDaoJpa();

@@ -27,7 +27,7 @@ public interface IClientDao {
 	/**
 	 * Méthode permettant de récupérer en base la liste des clients d'un conseiller à partir de son login
 	 * @param logInit login du conseiller (String)
-	 * @return Collection de Clients (Collection<Client>)
+	 * @return Collection de Clients (Collection de Client)
 	 */
 	public Collection<Client> readClientByConseiller(String logInit);
 	

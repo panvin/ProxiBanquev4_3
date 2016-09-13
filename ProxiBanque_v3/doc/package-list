@@ -1,0 +1,6 @@
+com.konradvincent2software.proxibanquesi.dao
+com.konradvincent2software.proxibanquesi.domaine
+com.konradvincent2software.proxibanquesi.exception
+com.konradvincent2software.proxibanquesi.presentation
+com.konradvincent2software.proxibanquesi.service
+com.konradvincent2software.proxibanquesi.service.test
