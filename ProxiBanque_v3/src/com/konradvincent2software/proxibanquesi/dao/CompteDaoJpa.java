@@ -54,10 +54,12 @@ public class CompteDaoJpa extends GestionEntityManager implements ICompteDao {
 	@Override
 	public boolean deleteCompteByNum(String numCompte) {
 		Compte compte = readCompteByNum(numCompte);
+		if (compte!= null){
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 		em.remove(compte);
 		tx.commit();
+		}
 		return false;
 	}
 

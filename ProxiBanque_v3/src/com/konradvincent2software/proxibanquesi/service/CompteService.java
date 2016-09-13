@@ -47,14 +47,12 @@ public class CompteService {
 		if(typeCompte.equals("Epargne") && client.getCompteEpargne() == null) {
 			CompteEpargne compteClient = new CompteEpargne(numero, solde, dateOuverture, client);
 			client.setCompteEpargne(compteClient);
-			clientDao.updateClientById(client.getId(), client);
 			compteDao.createCompte(compteClient, typeCompte, client.getId());
 			return true;
 		}
 		else if (typeCompte.equals("Courant") && client.getCompteEpargne() == null) {
 			CompteCourant compteClient = new CompteCourant(numero, solde, dateOuverture, client);
 			client.setCompteCourant(compteClient);
-			clientDao.updateClientById(client.getId(), client);
 			compteDao.createCompte(compteClient, typeCompte, client.getId());
 			return true;
 		}

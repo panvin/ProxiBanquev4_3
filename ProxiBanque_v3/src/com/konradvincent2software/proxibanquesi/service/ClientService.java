@@ -32,7 +32,7 @@ public class ClientService {
 	 *         false. (booléen)
 	 */
 	public boolean creerClient(Client client) {
-		boolean status, statusCreationClient, statusCreationCoord, statusCreationCompteEpargne,
+		boolean status, statusCreationClient, statusCreationCompteEpargne,
 				statusCreationCompteCourant;
 		ClientDaoJpa clientDao = new ClientDaoJpa();
 		CompteDaoJpa compteDao = new CompteDaoJpa();

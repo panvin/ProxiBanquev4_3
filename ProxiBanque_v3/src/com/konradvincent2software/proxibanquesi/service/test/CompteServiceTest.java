@@ -45,7 +45,6 @@ import com.konradvincent2software.proxibanquesi.service.CompteService;
 	@Test
 	public void testSupprimerCompteParNumero() {
 		boolean status;
-		compteService.ajouterCompte( client, "Courant", compteCourant.getNumero(), compteCourant.getSolde(), compteCourant.getDateOuverture());
 		status = compteService.supprimerCompte(compteCourant.getNumero());
 		Assert.assertTrue(status);
 	}
@@ -53,7 +52,6 @@ import com.konradvincent2software.proxibanquesi.service.CompteService;
 	@Test
 	public void testSupprimerCompteParClient(){
 		boolean status;
-		compteService.ajouterCompte( client2, "Courant", compteCourant2.getNumero(), compteCourant2.getSolde(), compteCourant2.getDateOuverture());
 		status = compteService.supprimerCompteParClient(1501);
 		Assert.assertTrue(status);
 	}

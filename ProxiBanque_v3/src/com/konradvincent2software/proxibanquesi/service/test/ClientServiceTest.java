@@ -21,8 +21,8 @@ public class ClientServiceTest {
 	public static void avantClasse(){
 		
 		conseillerTest = new Conseiller("responsable", "antoine", "monsieur", "login", "password");
-		clientTest = new Client("dupond", "toto", "monsieur", "asez@fr.com", "120 rue factice", "Lyon", "0102030405", "69003", 1500, conseillerTest, null, null);
-		clientTest2 = new Client("dupond", "soso", "madame", "asez@fr.com", "120 rue factice", "Lyon", "0102030405", "69003", 1501, conseillerTest, null, null);
+		clientTest = new Client("dupond", "toto", "monsieur", "asez@fr.com", "120 rue factice", "Lyon", "0102030405", "69003", 150, conseillerTest, null, null);
+		clientTest2 = new Client("dupond", "soso", "madame", "asez@fr.com", "120 rue factice", "Lyon", "0102030405", "69003", 151, conseillerTest, null, null);
 		clientService = new ClientService();
 		clientService.creerClient(clientTest2);
 	}
@@ -39,7 +39,7 @@ public class ClientServiceTest {
 	public void testLireClient() {
 		
 		Client testClient;
-		testClient = clientService.lireClient(1501);
+		testClient = clientService.lireClient(151);
 		Assert.assertNotNull(testClient);
 	}
 	
@@ -47,7 +47,7 @@ public class ClientServiceTest {
 	public void testModificationClient() {
 		
 		boolean status; 
-		status = clientService.modifierClient(1500, clientTest);
+		status = clientService.modifierClient(150, clientTest);
 		Assert.assertTrue(status);
 	}
 
