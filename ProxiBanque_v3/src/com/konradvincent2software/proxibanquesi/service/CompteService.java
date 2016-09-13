@@ -77,7 +77,7 @@ public class CompteService {
 		statusCompteADebiter = compteDao.updateCompteByNum(numCompteADebiter, soldeCompteADebiter);
 		statusCompteACrediter = compteDao.updateCompteByNum(numCompteACrediter, soldeCompteACrediter);
 		
-		logger.trace("Transfert realisé du compte: " +numCompteADebiter + " vers le compte: " + numCompteACrediter + " pour un montant de: " +montant + " Euros.");
+		logger.info("Transfert realisé du compte: " +numCompteADebiter + " vers le compte: " + numCompteACrediter + " pour un montant de: " +montant + " Euros.");
 
 		return (statusCompteADebiter && statusCompteACrediter);
 	}
