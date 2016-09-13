@@ -1,15 +1,18 @@
 package com.konradvincent2software.proxibanquesi.presentation;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
 import com.konradvincent2software.proxibanquesi.domaine.Client;
+import com.konradvincent2software.proxibanquesi.domaine.Compte;
 import com.konradvincent2software.proxibanquesi.domaine.Conseiller;
 import com.konradvincent2software.proxibanquesi.service.AuthService;
 import com.konradvincent2software.proxibanquesi.service.ClientService;
+import com.konradvincent2software.proxibanquesi.service.CompteService;
 import com.konradvincent2software.proxibanquesi.service.ConseillerService;
 
 //@ManagedBean(name="conseillerManagedBean")
@@ -21,6 +24,7 @@ public class ConseillerManagedBean implements Serializable {
 	AuthService as = new AuthService();
 	ConseillerService cs = new ConseillerService();
 	ClientService cls = new ClientService();
+	CompteService cms = new CompteService();
 	
 	// Propriétés
 	private String nom;
@@ -30,6 +34,10 @@ public class ConseillerManagedBean implements Serializable {
 	private String password;
 	private List<Client> clients;
 	private Client clientChoisi;
+//	private CompteCourant compteCourant;
+//	private CompteEpargne compteEpargne;
+	private List<Compte> comptes;
+
 	
 	// Constructeurs
 	public ConseillerManagedBean() {
@@ -78,6 +86,24 @@ public class ConseillerManagedBean implements Serializable {
 	}
 	public void setClientChoisi(Client clientChoisi) {
 		this.clientChoisi = clientChoisi;
+	}	
+//	public CompteCourant getCompteCourant() {
+//		return compteCourant;
+//	}
+//	public void setCompteCourant(CompteCourant compteCourant) {
+//		this.compteCourant = compteCourant;
+//	}
+//	public CompteEpargne getCompteEpargne() {
+//		return compteEpargne;
+//	}
+//	public void setCompteEpargne(CompteEpargne compteEpargne) {
+//		this.compteEpargne = compteEpargne;
+//	}
+	public List<Compte> getComptes() {
+		return comptes;
+	}
+	public void setComptes(List<Compte> comptes) {
+		this.comptes = comptes;
 	}
 
 	// Autres méthodes
@@ -98,21 +124,31 @@ public class ConseillerManagedBean implements Serializable {
         }
     }
 	
-//	public void onUserSelect(SelectEvent event){ 
-//    	this.clientChoisi =  (Client)event.getObject();
-//    	System.out.println("Client choisi : " + clientChoisi.toString());
-//    }
-	
 	public String selectionnerClient(Client client) {
 		setClientChoisi(client);
 		return "modifier";
 	}
 	
 	public String modifierClient() {
-//		System.out.println(clientChoisi.toString());
 		cls.modifierClient(clientChoisi.getId(), clientChoisi);
-//		setClients(cls.lireClientsParConseiller(login));
 		return "acceuil";
+	}
+	
+	public String voirComptes(Client client) {
+		setClientChoisi(client);
+		Compte compteCourant = client.getCompteCourant();
+		Compte compteEpargne = client.getCompteEpargne();
+		comptes = new ArrayList<Compte>();
+		if(compteCourant != null)
+			comptes.add(compteCourant);
+		if(compteCourant != null)
+			comptes.add(compteEpargne);
+		System.out.println(comptes);
+		return "comptes";
+	}
+	
+	public String deconnexion() {
+		return "login";
 	}
 	
 }

@@ -20,7 +20,7 @@
 					border="0">
 					
 					<h:outputLabel for="#{conseillerManagedBean.clientChoisi.id}" value="Id" />
-					<h:inputText value="#{conseillerManagedBean.clientChoisi.id}" style="width: 100;" readonly="true"/>	 
+					<h:inputText value="#{conseillerManagedBean.clientChoisi.id}" readonly="true"/>	 
 
 					<h:outputLabel for="#{conseillerManagedBean.clientChoisi.nom}" value="Nom" />
 					<h:inputText value="#{conseillerManagedBean.clientChoisi.nom}" readonly="false" />
@@ -28,10 +28,18 @@
 					<h:outputLabel for="#{conseillerManagedBean.clientChoisi.prenom}" value="Prenom" />
 					<h:inputText value="#{conseillerManagedBean.clientChoisi.prenom}" readonly="false" />
 					
-					<h:outputLabel for="#{conseillerManagedBean.clientChoisi.email}" value="Adresse e-mail" />
+					<h:outputLabel for="#{conseillerManagedBean.clientChoisi.email}" value="E-mail" />
 					<h:inputText value="#{conseillerManagedBean.clientChoisi.email}" readonly="false" />
+					
+					<h:outputLabel for="#{conseillerManagedBean.clientChoisi.coordonnees.adresse}" value="Voie" />
+					<h:inputText value="#{conseillerManagedBean.clientChoisi.coordonnees.adresse}" readonly="false" />
+					
+					<h:outputLabel for="#{conseillerManagedBean.clientChoisi.coordonnees.cp}" value="Code postale" />
+					<h:inputText value="#{conseillerManagedBean.clientChoisi.coordonnees.cp}" readonly="false" />
+					
+					<h:outputLabel for="#{conseillerManagedBean.clientChoisi.coordonnees.ville}" value="Ville" />
+					<h:inputText value="#{conseillerManagedBean.clientChoisi.coordonnees.ville}" readonly="false" />
 				
-
 				</h:panelGrid>
 				<h:commandButton type="submit" value="Valider" action="#{conseillerManagedBean.modifierClient}"/>
 			</p:panel>
