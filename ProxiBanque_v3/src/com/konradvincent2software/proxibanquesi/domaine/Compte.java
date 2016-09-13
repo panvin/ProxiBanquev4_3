@@ -37,6 +37,10 @@ public abstract class Compte {
 		this.dateOuverture = dateOuverture;
 	}
 
+	public Compte() {
+
+	}
+
 	/**
 	 * Méthode permettant d'obtenir le numéro du compte
 	 * @return Le numero du compte (String)

@@ -3,7 +3,10 @@ package com.konradvincent2software.proxibanquesi.dao;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
+import com.konradvincent2software.proxibanquesi.domaine.Client;
 import com.konradvincent2software.proxibanquesi.domaine.Compte;
+import com.konradvincent2software.proxibanquesi.domaine.CompteCourant;
+import com.konradvincent2software.proxibanquesi.domaine.CompteEpargne;
 
 public class CompteDaoJpa extends GestionEntityManager implements ICompteDao {
 
@@ -14,10 +17,17 @@ public class CompteDaoJpa extends GestionEntityManager implements ICompteDao {
 	}
 	@Override
 	public boolean createCompte(Compte compte, String typeCompte, int idClient) {
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		em.persist(compte);
-		tx.commit();
+		ClientDaoJpa clientDao = new ClientDaoJpa();
+		Client client = clientDao.readClientById(idClient);
+		if (typeCompte.equals("Epargne")) {
+			client.setCompteEpargne((CompteEpargne) compte);
+			clientDao.updateClientById(idClient, client);
+			return true;
+		}else if(typeCompte.equals("Courant")){
+			client.setCompteCourant((CompteCourant) compte);
+			clientDao.updateClientById(idClient, client);
+			return true;
+		}
 		return false;
 	}
 

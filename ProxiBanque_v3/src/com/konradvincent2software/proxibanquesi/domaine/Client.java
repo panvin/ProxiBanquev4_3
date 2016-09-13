@@ -33,9 +33,9 @@ public class Client extends Personne {
 	private int id;
 	@ManyToOne
 	private Conseiller monConseiller;
-	@OneToOne(mappedBy="titulaire", cascade=CascadeType.ALL, orphanRemoval = true)
+	@OneToOne(cascade=CascadeType.ALL, orphanRemoval = true)
 	private CompteEpargne compteEpargne;
-	@OneToOne(mappedBy="titulairee", cascade=CascadeType.ALL, orphanRemoval = true)
+	@OneToOne(cascade=CascadeType.ALL, orphanRemoval = true)
 	private CompteCourant compteCourant;
 
 	/**

@@ -26,23 +26,23 @@ public class ConseillerServiceTest {
 
 	@Test
 	public void testCreerConseiller() {
-		boolean status;
-		status = conseillerService.creerConseiller(conseillerTest);
+		boolean status = false;
+		conseillerService.creerConseiller(conseillerTest);
 		Assert.assertTrue(status);
 	}
 
 	@Test
 	public void testModifierConseiller() {
-		boolean status;
+		boolean status = false;
 		conseillerTest.setNom("test1");
-		status = conseillerService.modifierConseiller("test", conseillerTest);
+		conseillerService.modifierConseiller("test", conseillerTest);
 		Assert.assertTrue(status);
 	}
 
 	@Test
 	public void testSupprimerConseiller() {
-		boolean status;
-		status = conseillerService.supprimerConseiller(conseillerTest2.getLogin());
+		boolean status = false;
+		conseillerService.supprimerConseiller(conseillerTest2.getLogin());
 		Assert.assertTrue(status);
 
 	}

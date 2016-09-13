@@ -23,9 +23,7 @@ import javax.persistence.OneToOne;
 @DiscriminatorValue("EPARGNE")
 public class CompteEpargne extends Compte {
 
-	@OneToOne
-	@JoinColumn(name="id")
-	@MapsId
+	@OneToOne(cascade=CascadeType.MERGE)
 	private Client titulaire;
 
 	/**
@@ -57,6 +55,10 @@ public class CompteEpargne extends Compte {
 	 */
 	public CompteEpargne(String numero, Float solde, String dateOuverture) {
 		super(numero, solde, dateOuverture);
+	}
+	
+	public CompteEpargne() {
+		
 	}
 
 	/**

@@ -1,6 +1,7 @@
 package com.konradvincent2software.proxibanquesi.service;
 
 import com.konradvincent2software.proxibanquesi.dao.ConseillerDao;
+import com.konradvincent2software.proxibanquesi.dao.ConseillerDaoJpa;
 import com.konradvincent2software.proxibanquesi.domaine.Conseiller;
 
 /**
@@ -27,7 +28,7 @@ public class AuthService {
 	 *         false sinon. (booléen)
 	 */
 	public boolean authConseiller(String login, String pwd) {
-		ConseillerDao conseillerDao = new ConseillerDao();
+		ConseillerDaoJpa conseillerDao = new ConseillerDaoJpa();
 
 		Conseiller conseiller = conseillerDao.readConseillerByLogin(login);
 
