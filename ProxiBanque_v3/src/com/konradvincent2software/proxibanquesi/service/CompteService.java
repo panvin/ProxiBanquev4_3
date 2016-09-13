@@ -2,9 +2,7 @@ package com.konradvincent2software.proxibanquesi.service;
 
 import java.util.ArrayList;
 
-import com.konradvincent2software.proxibanquesi.dao.ClientDao;
 import com.konradvincent2software.proxibanquesi.dao.ClientDaoJpa;
-import com.konradvincent2software.proxibanquesi.dao.CompteDao;
 import com.konradvincent2software.proxibanquesi.dao.CompteDaoJpa;
 import com.konradvincent2software.proxibanquesi.domaine.Client;
 import com.konradvincent2software.proxibanquesi.domaine.Compte;

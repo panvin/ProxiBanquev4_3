@@ -33,9 +33,9 @@ public class Client extends Personne {
 	private int id;
 	@ManyToOne(cascade=CascadeType.MERGE)
 	private Conseiller monConseiller;
-	@OneToOne(cascade=CascadeType.ALL, orphanRemoval = true)
+	@OneToOne(orphanRemoval = true)
 	private CompteEpargne compteEpargne;
-	@OneToOne(cascade=CascadeType.ALL, orphanRemoval = true)
+	@OneToOne(orphanRemoval = true)
 	private CompteCourant compteCourant;
 
 	/**
