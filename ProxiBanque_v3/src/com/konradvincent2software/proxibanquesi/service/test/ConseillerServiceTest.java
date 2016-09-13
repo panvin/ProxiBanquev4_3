@@ -8,6 +8,11 @@ import org.junit.Test;
 import com.konradvincent2software.proxibanquesi.domaine.Conseiller;
 import com.konradvincent2software.proxibanquesi.service.ConseillerService;
 
+/**
+ * Classe permettant de faire les test unitaire sur le service conseiller
+ * @author Konrad THOMAS et Vincent PANOUILLERES
+ *
+ */
 public class ConseillerServiceTest {
 
 	private static Conseiller conseillerTest, conseillerTest2, conseillerTest3, conseillerTest4;

@@ -9,6 +9,11 @@ import com.konradvincent2software.proxibanquesi.domaine.Conseiller;
 import com.konradvincent2software.proxibanquesi.service.AuthService;
 import com.konradvincent2software.proxibanquesi.service.ConseillerService;;
 
+/**
+ * Test unitaire pour le service d'authentification
+ * @author Konrad THOMAS et VIncent PANOUILLERES
+ *
+ */
 public class AuthServiceTest {
 
 	@BeforeClass
