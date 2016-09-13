@@ -13,12 +13,15 @@
 <h:body>
 	 <div align="right">
   		<h:form>
-  			<p:commandLink action="#{conseillerManagedBean.deconnexion}">Déconnexion</p:commandLink>
+  			<p:commandLink action="login">Déconnexion</p:commandLink>
   		</h:form>
 	</div>
 	 
 	<center>
-		<h1>Bienvenue <h:outputText value="#{conseillerManagedBean.prenom}" />&nbsp;<h:outputText value="#{conseillerManagedBean.nom}" />!</h1>
+		<h2>Bonjour 
+			<h:outputText value="#{conseillerManagedBean.prenom}" />&nbsp;
+			<h:outputText value="#{conseillerManagedBean.nom}" />!
+		</h2>
 		
 			<h:form id="formClientTable">
 			
@@ -61,10 +64,9 @@
 						<h:commandButton value="Voir comptes" action="#{conseillerManagedBean.voirComptes(client)}" />
 					</center>
 				</p:column>
-
 			</p:dataTable>
 			<br/>
-			<h:commandButton type="submit" value="Effectuer un virement" action="virement"/>
+			<h:commandButton value="Effectuer un virement" action="virement" />
 		</h:form>
 	</center>
 </h:body>

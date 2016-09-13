@@ -13,7 +13,19 @@
 <h:body>
 
 	<center>
-		<h1>Hello World!</h1>
+		<p:panel header="Virement entre deux comptes" style="width: 350;" >
+			<h:form>
+			 	<h:panelGrid columns="2" cellpadding="2">
+			 		<h:outputLabel value="Numéro du compte à débiter" />
+					<h:inputText binding="#{conseillerManagedBean.numeroCompteADebiter}" />
+					<h:outputLabel value="Numéro du compte à créditer" />
+					<h:inputText binding="#{conseillerManagedBean.numeroCompteACrediter}" />
+					<h:outputLabel value="Montant" />
+					<h:inputText value="#{conseillerManagedBean.montantVirement}"/>
+				</h:panelGrid>
+				<h:commandButton value="Effectuer" action="#{conseillerManagedBean.effectuerVirement}" />			
+			</h:form>
+		</p:panel>
 	</center>
 </h:body>
 </html>
