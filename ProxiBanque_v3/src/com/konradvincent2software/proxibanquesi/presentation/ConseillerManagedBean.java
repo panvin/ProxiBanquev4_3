@@ -9,6 +9,8 @@ import javax.faces.context.FacesContext;
 
 import com.konradvincent2software.proxibanquesi.domaine.Client;
 import com.konradvincent2software.proxibanquesi.domaine.Compte;
+import com.konradvincent2software.proxibanquesi.domaine.CompteEpargne;
+import com.konradvincent2software.proxibanquesi.domaine.CompteCourant;
 import com.konradvincent2software.proxibanquesi.domaine.Conseiller;
 import com.konradvincent2software.proxibanquesi.service.AuthService;
 import com.konradvincent2software.proxibanquesi.service.ClientService;
@@ -183,7 +185,14 @@ public class ConseillerManagedBean implements Serializable {
 	 */
 	public String effectuerVirement() {
 		//System.out.println(numeroCompteACrediter);
-		//cms.virementCompteACompte(numeroCompteADebiter, numeroCompteACrediter, Float.parseFloat(montantVirement));
+		if(cms.virementCompteACompte(numeroCompteADebiter, numeroCompteACrediter, Float.parseFloat(montantVirement))) {
+			setClients(cls.lireClientsParConseiller(login));
+			FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage("username", new FacesMessage("Virement réussi."));
+		} else {
+			FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage("username", new FacesMessage("Virement non réussi."));
+		}
 		return "acceuil";
 	}
 }

@@ -53,7 +53,7 @@ public class CompteDaoJpa extends GestionEntityManager implements ICompteDao {
 		tx.begin();
 		compte.setSolde(newSolde);
 		tx.commit();
-		return false;
+		return true;
 		
 	}
 

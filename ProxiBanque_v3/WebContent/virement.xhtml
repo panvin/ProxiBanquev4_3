@@ -17,9 +17,9 @@
 			<h:form>
 			 	<h:panelGrid columns="2" cellpadding="2">
 			 		<h:outputLabel value="Numéro du compte à débiter" />
-					<h:inputText binding="#{conseillerManagedBean.numeroCompteADebiter}" />
+					<h:inputText value="#{conseillerManagedBean.numeroCompteADebiter}" />
 					<h:outputLabel value="Numéro du compte à créditer" />
-					<h:inputText binding="#{conseillerManagedBean.numeroCompteACrediter}" />
+					<h:inputText value="#{conseillerManagedBean.numeroCompteACrediter}" />
 					<h:outputLabel value="Montant" />
 					<h:inputText value="#{conseillerManagedBean.montantVirement}"/>
 				</h:panelGrid>
